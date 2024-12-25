@@ -1,4 +1,4 @@
-# George-was-Right-v2 - Environment Variables and Security
+# George-was-Right - Environment Variables and Security
 
 ## Keep API keys secure in `.env` file
 

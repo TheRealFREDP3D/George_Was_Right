@@ -1,4 +1,4 @@
-# George-was-Right v2 - TODO.md
+# George-was-Right - TODO.md
 
 ## [x] v0.0 --> v0.1 - Planning and Structure
 
@@ -54,3 +54,10 @@
 - [ ] Classes
 - [ ] Functions
 - [ ] Tests
+
+---
+
+v0.4
+
+Target structure:
+![Rework the structure](images\TODO-v0.4.png)
