@@ -1,8 +1,8 @@
-# George-was-Right-v2 - README.md
+# George-Was-Right v0.3 - README.md
 
 ![Generated with DALL-E and a prompt from the Illustrator Agent](images/Header.png)
 
-George-was-Right-v2 leverages a team of AI agents, powered by CrewAI, to analyze recent world events through the lens of themes from George Orwell's *1984*. It orchestrates four specialized agents—Researcher, Writer, Illustrator, and Editor—to perform tasks such as:
+George_Was_Right leverages a team of AI agents, powered by CrewAI, to analyze recent world events through the lens of themes from George Orwell's *1984*. It orchestrates four specialized agents—Researcher, Writer, Illustrator, and Editor—to perform tasks such as:
 
 - Searching for relevant news.
 - Comparing news with themes from *1984*.
@@ -13,7 +13,7 @@ This project aims to provide a nuanced examination of how contemporary society r
 
 ---
 
-![Generated with DALL-E and a prompt from the Illustrator Agent](images/-freedom-from-surveillance4.jpg)
+![Generated with DALL-E and a prompt from the Illustrator Agent](images/illustration-under-surveillance-camera.jpg)
 
 ---
 
@@ -35,24 +35,37 @@ This project aims to provide a nuanced examination of how contemporary society r
 
 ---
 
-![Generated with DALL-E and a prompt from the Illustrator Agent](images/.surveillancedark-city4.jpg)
+![Generated with DALL-E and a prompt from the Illustrator Agent](images/the-eye-telescreen.jpg)(images/.surveillancedark-city4.jpg)
 
 ---
 
 ## Project History
 
-This is the second iteration of George-was-Right. The original version, a simple Python project, became unmanageable due to accumulating changes and a lack of version control. Starting fresh enabled a focus on better coding practices, structured development, and Git-based version control.
+George-Was-Right is a project I’ve been working on to learn Python. I needed  way to get hands-on with programming and not just read about it.
 
-### Lessons Learned
+Like a lot of people during the pandemic, I was stuck at home with too much time on my hands. That’s when I decided to finally dive back into coding. I had just finished reading '1984' and taught, “Why not make something in George Orwell’s world?” My first idea was to make a small game. I wasn't really serious about this project until I discovered LLMs, Ollama and CrewAI. My project idea took a hard left turn. It was definitely a stretch for my skills at the time, but I love a good challenge. It forced me to read, learn, and experiment. Plus, who doesn’t like an excuse to Google stuff?
+
+What started as a “just for fun” hobby has turned into something more. I’m working on it in my spare time because, well, it’s fun and satisfying. At 40, I’ve finally found something I actually enjoy doing—and I’m starting to think it might be time for a career change. During daytime, I work at a private yacht club doing maintenance, building, and fixing things, mainly around the property and boats. No computers in sight, which is actually a bit wild when I think about it now. But here I am, trying to figure out Python while also being a handyman.
+
+So, I’m cooking up an "exit plan" from the yacht life and trying to carve out some time to dive deeper into tech. Wish me luck!
+
+This is the second iteration of George-was-Right. The original version became unmanageable due to accumulating changes and a lack of version control. Starting fresh enabled a focus on better coding practices, structured development, and Git-based version control.
+
+I hope you find this project interesting.
+
+---
+
+### Lessons Learned the Hard Way
 
 - Importance of planning and incremental development.
 - Effective use of Git for managing changes.
 - Best practices for Python project structuring and imports.
 - Benefits of regular backups and separating development from production environments.
+- Keeping notes and keep documentation updated.
 
 ---
 
-![Generated with DALL-E and a prompt from the Illustrator Agent](images/._21ea1f38-e0bb-4ead-9d3a-a9b2b7b07517.jpg)
+![Generated with DALL-E and a prompt from the Illustrator Agent](images\ministry-of-truth-soviet-touch.jpg)
 
 ---
 
@@ -63,13 +76,13 @@ Follow these steps to set up the project:
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/TheRealFREDP3D/George-was-Right-v2.git
+   git clone https://github.com/TheRealFREDP3D/George_Was_Right.git
    ```
 
 2. Navigate to the project directory:
 
    ```bash
-   cd George-was-Right-v2
+   cd George_Was_Right
    ```
 
 3. Create a virtual environment:
@@ -102,6 +115,8 @@ Follow these steps to set up the project:
    ```bash
    python main.py
    ```
+
+---
 
 **Requirements:**
 
@@ -139,11 +154,7 @@ Please ensure changes are well-tested and documented. Refer to the [Contribution
 
 ---
 
-## About the Author
-
-My name is Frederick Pellerin, a Python enthusiast and aspiring IT professional. I have a keen interest in Python, AI, and cybersecurity and am currently exploring creative projects to deepen my learning.
-
-### Contact Information
+## Contact
 
 | **Contact**        | **Links**                                                             |
 |--------------------|-----------------------------------------------------------------------|
@@ -154,6 +165,10 @@ My name is Frederick Pellerin, a Python enthusiast and aspiring IT professional.
 
 ---
 
-**License:** MIT License. See the [LICENSE](LICENSE) file for details.
+**License:** MIT License. See the [LICENSE](LICENSE) file for details.  
 
-**Last Modified:** December 21, 2024
+---
+
+![Generated with DALL-E and a prompt from the Illustrator Agent](images/big-brother-is-watching.jpg)
+
+**Modified:** December 24, 2024
