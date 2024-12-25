@@ -21,4 +21,14 @@
 - The good news is that it's working well.
 - The bad news is that it's not perfect.
 
----
+---  
+
+## v0.3
+
+- The script outputs what is expected.
+- Used **gpt-4o** for **llm** and **planning_llm**
+- Need a Github Token Go to the [Github marketplace](https://github.com/marketplace) and grab yours for free.
+- Minor change in the description of tasks and agents. ()
+- Added documentation:
+  * Class Diagram
+  * File Overview - /main.py
