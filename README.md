@@ -35,7 +35,7 @@ This project aims to provide a nuanced examination of how contemporary society r
 
 ---
 
-![Generated with DALL-E and a prompt from the Illustrator Agent](images/the-eye-telescreen.jpg)(images/.surveillancedark-city4.jpg)
+![Generated with DALL-E and a prompt from the Illustrator Agent](images/the-eye-telescreen.jpg)
 
 ---
 
@@ -171,4 +171,4 @@ Please ensure changes are well-tested and documented. Refer to the [Contribution
 
 ![Generated with DALL-E and a prompt from the Illustrator Agent](images/big-brother-is-watching.jpg)
 
-**Modified:** December 24, 2024
+**Modified:** December 25, 2024
