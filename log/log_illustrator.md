@@ -1,31 +1,13 @@
-### Two Sets of Prompts for Illustrations  
+**Two Sets of Prompts:**
 
-#### 1. Recent Event Illustration Prompt:  
-**Prompt Title:** "The Watchful Eyes of Modern Surveillance"  
-**Detailed Prompt:**  
-Create an illustration that captures the essence of the recent allegations against Hikvision and the broader implications of modern surveillance. The scene should depict a bustling urban environment, with sleek, modern skyscrapers towering over the streets. Surveillance cameras are omnipresent—mounted on streetlights, building facades, and even hovering as drones in the sky. Highlight the advanced nature of these cameras with glowing lenses and subtle, futuristic designs.  
+**Prompt 1: Recent Event - Disruption of Covert Russian Government-Sponsored Foreign Malign Influence Campaigns**
 
-In the foreground, include a diverse group of individuals walking through the city. Some are glancing nervously at the cameras, while others appear oblivious, engrossed in their phones. A sense of unease should permeate the atmosphere, conveyed through a muted color palette dominated by grays, blues, and cold metallic tones.  
+Create an illustration of a dark and ominous digital landscape, representing the covert Russian government-sponsored foreign malign influence campaigns. The setting should be a futuristic, high-tech environment with rows of computer servers, wires, and screens displaying propaganda messages. In the center of the illustration, depict a large, cracked screen with a bold, red "DISRUPTED" stamp across it, symbolizing the Justice Department's successful disruption of the campaigns.
 
-In the background, a large digital billboard displays a cryptic message, such as "For Your Safety," accompanied by an abstract, faceless figure resembling "authority." The mood should evoke a sense of intrusion and discomfort, emphasizing the tension between technological advancement and personal freedom.  
+In the background, include subtle hints of the Russian government's involvement, such as a faint image of the Kremlin or a Russian flag. The mood should be tense and foreboding, conveying the sense of unease and danger that comes with government manipulation of information.
 
-**Style:** A semi-realistic, dystopian aesthetic with sharp details and a slightly futuristic edge. Use lighting to create stark contrasts between the shadows of the city and the glowing surveillance equipment, emphasizing the omnipresence of the technology.  
+**Prompt 2: '1984' Theme - Government Manipulation of Information and Propaganda**
 
----  
+Create an illustration of a dystopian society inspired by Orwell's '1984', featuring a massive, imposing structure representing the Ministry of Truth. The building should be surrounded by propaganda posters and screens displaying messages of government control and manipulation. In the foreground, depict a group of citizens in uniform, their faces expressionless and conformist, as they gaze up at the towering structure.
 
-#### 2. '1984' Theme Illustration Prompt:  
-**Prompt Title:** "Big Brother's Gaze"  
-**Detailed Prompt:**  
-Illustrate a dystopian cityscape inspired by George Orwell's *1984*. The scene should feature towering, oppressive buildings adorned with massive propaganda posters of Big Brother's face, his piercing eyes seemingly following the viewer. The streets below are filled with subdued, expressionless citizens dressed in drab, uniform clothing, walking in unison under the watchful gaze of telescreens mounted on every corner.  
-
-The telescreens broadcast a mix of propaganda slogans like "War is Peace" and "Freedom is Slavery," with a flickering, glitchy effect to emphasize their omnipresence. Include hidden microphones and cameras subtly integrated into the environment, such as in lampposts or walls, to convey the idea of constant surveillance.  
-
-The mood should be dark and oppressive, with a color palette dominated by shades of gray, black, and deep red. Use shadows and dim lighting to create a claustrophobic atmosphere, with beams of light highlighting the propaganda posters and telescreens.  
-
-In the foreground, depict a lone individual hesitating, looking over their shoulder as if aware of being watched. This figure should stand out slightly, perhaps wearing a subtle splash of color, to symbolize a flicker of resistance or individuality in an otherwise conformist society.  
-
-**Style:** A gritty, dystopian aesthetic with a focus on texture and detail. The illustration should feel heavy and oppressive, with a sense of unease that mirrors the themes of Orwell's novel.  
-
----  
-
-These prompts are designed to evoke powerful visuals that capture the essence of both the modern surveillance issue and the timeless warnings of *1984*.
+At the top of the illustration, include a large, ominous screen displaying the image of Big Brother, symbolizing the all-pervasive surveillance and control of the totalitarian government. The mood should be dark and foreboding, conveying the sense of oppression and hopelessness that pervades the novel.

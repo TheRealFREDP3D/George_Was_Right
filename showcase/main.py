@@ -1,36 +1,38 @@
 #!/bin/env/python
 
 # George_Was_Right
-# v0.2 - Basic AI project setup - FINAL
+# v0.3 - Structure&Small fixes - FINAL(2)
 
 # Importing necessary libraries and tools
 from rich import print
 import os
 from crewai import Agent, Task, Crew, LLM
 from crewai_tools import SerperDevTool
-
-# Load environment variable from /.env
+import openai
 from dotenv import load_dotenv
 
+# Load environment variable from /.env
 load_dotenv()
-import openai
 
-llm_model_name = "github/gpt-4o"
+import litellm
+litellm.set_verbose = True #dev
+# LLM Config -----------------------------------------------------------------
+llm_model_name = "openai/hf:meta-llama/Llama-3.1-405B-Instruct"
+planning_llm_name = "github/gpt-4o"
+base_url = os.getenv("OPENAI_API_BASE")
 
-# LLM Config-----------------------------------------------------
-print("""
-     * ************************************* *
-    * |         Initialize LLM Model        | *  
-    * |  llm_model_name = "github/gpt-4o"   | *
-     * ************************************* *
-     """
-     )
-     
 llm = LLM(model=llm_model_name, temperature=0.3)
+planning_llm = LLM(model=planning_llm_name, temperature=0.1)
 
-# ---------------------------------------------------------------
+print(f"""
+    -------------------
+    - LLM Models:  
+    - llm_model_name = {llm_model_name}
+    - planning_llm_name = {planning_llm_name}  
+    -------------------
+     """)
 
-# Search Tool
+# Search Tool ----------------------------------------------------------------
 search_country = os.getenv(
     "SEARCH_COUNTRY",
     "us",
@@ -57,7 +59,7 @@ class ResearcherAgent(Agent):
     def __init__(self, **kwargs):
         super().__init__(
             role="Researcher",
-            goal="Research real world news to find and compare with Orwell's '1984' themes.",
+            goal="Finding recent real world events(2024) to demonstrate how Orwell's '1984' book is still relevant in our days.",
             backstory="You are an expert researcher with a keen eye for current events and literary analysis.",
             allow_delegation=True,
             verbose=True,
@@ -177,7 +179,7 @@ def create_crew():
         tasks=tasks,
         verbose=True,
         planning=True,
-        planning_llm=LLM(model="github/gpt-4o", temperature=0.1),
+        planning_llm=planning_llm
     )
 
 
@@ -185,11 +187,12 @@ def main():
     crew = create_crew()
     crew.kickoff()
 
-    print("""
-     * ************************************* *
-    * |                 DONE!               | *  
-    * |  llm_model_name = "github/gpt-4o"   | *
-     * ************************************* *
+    print(f"""
+    -------------------
+      JOB DONE!   
+    - llm_model_name = {llm_model_name}
+    - planning_llm_name = {planning_llm_name}  
+    -------------------
      """)
 
 

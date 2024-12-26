@@ -25,7 +25,7 @@
 
 ---
 
-## [ ] v0.1 --> v0.2 - Code Framework (CrewAI)
+## [X] v0.1 --> v0.2 - Code Framework (CrewAI)
 
 ### Step 1 - CrewAI
 
@@ -34,23 +34,23 @@
 - [x] LLM
 
 - [ ] Agents
-  - [ ] Researcher_Agent
-  - [ ] Writer_Agent
-  - [ ] Illustrator_Agent
-  - [ ] Editor_Agent
+  - [X] Researcher_Agent
+  - [X] Writer_Agent
+  - [X] Illustrator_Agent
+  - [ ] Editor_Agent --> **Will add when working on the output**
 
 - [ ] Tasks
-  - [ ] ResearchTask
-  - [ ] WriteAnalysisTask
-  - [ ] GeneratePromptsTask
-  - [ ] FinalReviewTask
+  - [X] ResearchTask
+  - [X] WriteAnalysisTask
+  - [X] GeneratePromptsTask
+  - [ ] FinalReviewTask  --> **Will add when working on the output**  
 
-- [ ] Crew
+- [X] Crew
   
 ### main.py
 
-- [ ] Create a main function to run the project.
-- [ ] Imports
+- [X] Create a main function to run the project.
+- [X] Imports
 - [ ] Classes
 - [ ] Functions
 - [ ] Tests
