@@ -22,9 +22,12 @@ This project aims to provide a nuanced examination of how contemporary society r
 ### Current Features
 
 - **Automated Research and Analysis:** Gathers and analyzes news stories in relation to *1984* themes.
-- **Multi-Agent Collaboration:** Uses specialized AI agents to divide and conquer complex tasks.
+- **Multi-Agent Collaboration:** Uses specialized AI agents (Researcher, Writer, Prompt Master) to divide and conquer complex tasks.
 - **Visual Prompt Generation:** Produces creative prompts for illustrations to enhance storytelling and audience engagement.
 - **Clear and Structured Output:** Outputs organized markdown reports combining research, analysis, and visuals.
+- **Environment Variable Validation:** Validates required environment variables and provides error handling.
+- **Improved Code Structure:** Enhanced code organization and readability.
+- **LLM Model Support:** Integrates various LLM models for enhanced functionality.
 
 ### Upcoming Enhancements
 
@@ -32,6 +35,54 @@ This project aims to provide a nuanced examination of how contemporary society r
 - **GUI Integration:** Develop a user-friendly graphical interface for seamless control of the analysis process.
 - **Refined Output Formats:** Improve markdown and PDF exports for clarity and usability.
 - **Incremental Feature Rollout:** Continuously implement new features while maintaining backward compatibility.
+
+![Generated with DALL-E and a prompt from the Illustrator Agent](images/Header.png)
+
+## Features and Roadmap
+
+### Current Features
+
+- **Automated Research and Analysis:** Gathers and analyzes news stories in relation to *1984* themes.
+- **Multi-Agent Collaboration:** Uses specialized AI agents (Researcher, Writer, Prompt Master) to divide and conquer complex tasks.
+- **Visual Prompt Generation:** Produces creative prompts for illustrations to enhance storytelling and audience engagement.
+- **Clear and Structured Output:** Outputs organized markdown reports combining research, analysis, and visuals.
+- **Environment Variable Validation:** Validates required environment variables and provides error handling.
+- **Improved Code Structure:** Enhanced code organization and readability.
+
+### Upcoming Enhancements
+
+- **Customizable Search Parameters:** Add options for users to specify country and the number of search results for focused research.
+- **GUI Integration:** Develop a user-friendly graphical interface for seamless control of the analysis process.
+- **Refined Output Formats:** Improve markdown and PDF exports for clarity and usability.
+- **Incremental Feature Rollout:** Continuously implement new features while maintaining backward compatibility.
+
+## Showcase
+
+### Showcase-1
+
+- **Main Script:** [main.py](showcase/Showcase-1/main.py)
+- **Generated Images:**
+  - [Prompt1-ChatGPT.jpg](showcase/Showcase-1/Prompt1-ChatGPT.jpg)
+  - [Prompt1.Dall-E-2.jpg](showcase/Showcase-1/Prompt1.Dall-E-2.jpg)
+  - [Prompt1.Dall-E-3.jpg](showcase/Showcase-1/Prompt1.Dall-E-3.jpg)
+  - [Prompt1.Dall-E-4.jpg](showcase/Showcase-1/Prompt1.Dall-E-4.jpg)
+  - [Prompt1.Dall-E.jpg](showcase/Showcase-1/Prompt1.Dall-E.jpg)
+  - [Prompt2-ChatGPT.jpg](showcase/Showcase-1/Prompt2-ChatGPT.jpg)
+  - [Prompt2-Dall-E-2.jpg](showcase/Showcase-1/Prompt2-Dall-E-2.jpg)
+  - [Prompt2-Dall-E-3.jpg](showcase/Showcase-1/Prompt2-Dall-E-3.jpg)
+  - [Prompt2-Dall-E-4.jpg](showcase/Showcase-1/Prompt2-Dall-E-4.jpg)
+  - [Prompt2-Dall-E.jpg](showcase/Showcase-1/Prompt2-Dall-E.jpg)
+- **Terminal Log:** [terminal_log.md](showcase/Showcase-1/terminal_log.md)
+
+### Showcase-2
+
+- **Generated Images:**
+  - [Prompt1-ChatGPT.jpg](showcase/Showcase-2/Prompt1-ChatGPT.jpg)
+  - [Prompt2-Dalle-E-2.jfif](showcase/Showcase-2/Prompt2-Dalle-E-2.jfif)
+  - [Prompt2-Dalle-E-3.jfif](showcase/Showcase-2/Prompt2-Dalle-E-3.jfif)
+  - [Prompt2-Dalle-E-4.jfif](showcase/Showcase-2/Prompt2-Dalle-E-4.jfif)
+  - [Prompt2-Dalle-E.jfif](showcase/Showcase-2/Prompt2-Dalle-E.jfif)
+- **Terminal Output:** [terminal-output--26-12-2024.md](showcase/Showcase-2/terminal-output--26-12-2024.md)
 
 ---
 
