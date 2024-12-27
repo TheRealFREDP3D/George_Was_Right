@@ -125,9 +125,8 @@ def create_tasks(researcher, writer, prompt_master):
     ]
 
 def create_crew():
-    try:
-        researcher = ResearcherAgent(search_tool=search_tool)
-        writer = WriterAgent()
+    researcher = ResearcherAgent(search_tool=search_tool)
+    writer = WriterAgent()
         prompt_master = PromptMasterAgent()
 
         tasks = create_tasks(researcher, writer, prompt_master)
