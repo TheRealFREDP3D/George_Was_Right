@@ -1,0 +1,7 @@
+**Recent Event Illustration Prompt:**
+
+Create an illustration of a modern Chinese cityscape with a dense network of surveillance cameras and sensors. The city is bustling with people going about their daily lives, but the atmosphere is tense and foreboding. In the foreground, a large screen displays a propaganda message, while a smaller screen shows a citizen's "social credit score." A group of police officers in the background are monitoring the crowd, with one officer looking at a handheld device displaying a person's facial recognition data. The color palette is dark and muted, with flashes of red to symbolize the pervasive surveillance state.
+
+**'1984' Theme Illustration Prompt:**
+
+Create an illustration of a dystopian room filled with rows of telescreens displaying the face of Big Brother. The room is dimly lit, with a single spotlight shining on a lone figure sitting in front of a telescreen. The figure is slumped in a chair, with their head in their hands, as if overwhelmed by the constant surveillance. In the background, a large poster of Big Brother looms, with the slogan "War is Peace, Freedom is Slavery, Ignorance is Strength" emblazoned below. The atmosphere is oppressive and bleak, with a sense of hopelessness pervading the scene. The color palette is dark and muted, with a focus on grays and blacks to convey the sense of despair.
