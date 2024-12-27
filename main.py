@@ -18,8 +18,7 @@ def validate_environment():
         "LLM_MODEL_NAME",
         "PLANNING_LLM_NAME",
     ]  # Changed to match config.py
-    missing_vars = [var for var in required_vars if not os.getenv(var)]
-    if missing_vars:
+    if missing_vars := [var for var in required_vars if not os.getenv(var)]:
         raise EnvironmentError(
             f"Missing required environment variables: {', '.join(missing_vars)}"
         )
@@ -126,9 +125,8 @@ def create_tasks(researcher, writer, prompt_master):
     ]
 
 def create_crew():
-    try:
-        researcher = ResearcherAgent(search_tool=search_tool)
-        writer = WriterAgent()
+    researcher = ResearcherAgent(search_tool=search_tool)
+    writer = WriterAgent()
         prompt_master = PromptMasterAgent()
 
         tasks = create_tasks(researcher, writer, prompt_master)
