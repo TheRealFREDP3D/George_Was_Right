@@ -1,0 +1,1 @@
+These two sets of prompts are designed to capture the essence of the comparison between the recent event and the themes of '1984'. They provide a starting point for creating compelling illustrations that convey the message of surveillance, control, and the dangers of totalitarianism.
