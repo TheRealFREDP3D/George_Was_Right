@@ -6,6 +6,8 @@ from rich.table import Table
 from rich.prompt import Prompt, Confirm
 from rich.panel import Panel
 from rich import box
+from rich.text import Text
+from rich.group import Group  # Add this import
 from typing import Dict, Optional
 import shutil
 import subprocess
