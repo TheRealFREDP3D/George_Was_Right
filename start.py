@@ -160,8 +160,8 @@ class EnvManager:
             console.print(f"[error]Error executing main.py: {str(e)}[/error]")
 
 
-def display_menu() -> None:
-    """Display the main menu"""
+def display_menu(env_manager: EnvManager) -> None:
+    """Display the main menu with environment variables and a welcome message"""
     menu_items = [
         ("1", "View Current Values"),
         ("2", "Edit Value"),
@@ -172,14 +172,33 @@ def display_menu() -> None:
         ("q", "Quit"),
     ]
 
-    table = Table(box=None, show_header=False)
-    table.add_column("Option", style="primary")
-    table.add_column("Description")
+    # Create a table for the environment variables
+    env_table = Table(box=None, show_header=False)
+    env_table.add_column("Variable Name", style="primary")
+    env_table.add_column("Value", style="secondary")
 
-    for option, description in menu_items:
-        table.add_row(option, description)
+    for key in sorted(env_manager.env_data.keys()):
+        env_table.add_row(key, env_manager.env_data[key])
 
-    console.print(Panel(table, title="Environment Manager", subtitle="Choose an option"))
+    # Create a panel for the environment variables
+    env_panel = Panel(env_table, title="Current Environment Variables")
+
+    # Create a panel for the welcome message and commands
+    welcome_message = (
+        "Welcome to the Environment Manager!\n\n"
+        "Available commands:\n"
+        "1. View Current Values\n"
+        "2. Edit Value\n"
+        "3. Add New Entry\n"
+        "4. Save Changes\n"
+        "5. Restore from Backup\n"
+        "6. Execute main.py\n"
+        "q. Quit"
+    )
+    welcome_panel = Panel(welcome_message, title="Environment Manager", subtitle="Choose an option")
+
+    # Display both panels side by side
+    console.print(Panel(Group(env_panel, welcome_panel), box=box.ROUNDED))
 
 
 def main():
