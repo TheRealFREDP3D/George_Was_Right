@@ -188,7 +188,11 @@ def main():
 
     while True:
         display_menu()
-        choice = Prompt.ask("> ", choices=["1", "2", "3", "4", "5", "6", "q"], show_choices=False)
+        while True:
+            choice = Prompt.ask("> ", choices=["1", "2", "3", "4", "5", "6", "q"], show_choices=False)
+            if choice:
+                break
+            console.print("Please select one of the available options")
 
         if choice == "q":
             if env_manager.modified:
