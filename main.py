@@ -2,27 +2,22 @@
 
 import os
 from rich import print
-from crewai import Agent, Task, Crew, LLM
+from crewai import Agent, Task, Crew
 from dotenv import load_dotenv
-from src.config import *
+from src.config import (
+    log_researcher,
+    log_writer,
+    log_prompt_master,
+    log_crew,
+    llm_model_name,
+    planning_llm_name,
+)
 from src.tools import search_tool
 from src.llm import LLMFactory
+import subprocess
 
-# Load environment variables before any other operations
+# Load environment variables
 load_dotenv()
-
-
-# Validate required environment variables
-def validate_environment():
-    required_vars = [
-        "LLM_MODEL_NAME",
-        "PLANNING_LLM_NAME",
-    ]  # Changed to match config.py
-    if missing_vars := [var for var in required_vars if not os.getenv(var)]:
-        raise EnvironmentError(
-            f"Missing required environment variables: {', '.join(missing_vars)}"
-        )
-
 
 class ResearcherAgent(Agent):
     def __init__(self, search_tool=None, **kwargs):
@@ -46,6 +41,7 @@ class ResearcherAgent(Agent):
             **kwargs
         )
 
+
 class WriterAgent(Agent):
     def __init__(self, **kwargs):
         super().__init__(
@@ -64,6 +60,7 @@ class WriterAgent(Agent):
             **kwargs
         )
 
+
 class PromptMasterAgent(Agent):
     def __init__(self, **kwargs):
         super().__init__(
@@ -80,6 +77,7 @@ class PromptMasterAgent(Agent):
             llm=LLMFactory.init_llm(),
             **kwargs
         )
+
 
 def create_tasks(researcher, writer, prompt_master):
     return [
@@ -124,28 +122,29 @@ def create_tasks(researcher, writer, prompt_master):
         )
     ]
 
+
 def create_crew():
-    researcher = ResearcherAgent(search_tool=search_tool)
-    writer = WriterAgent()
+    try:
+        researcher = ResearcherAgent(search_tool=search_tool)
+        writer = WriterAgent()
         prompt_master = PromptMasterAgent()
-
         tasks = create_tasks(researcher, writer, prompt_master)
-
         return Crew(
             agents=[researcher, writer, prompt_master],
-            tasks=tasks,
-            verbose=True,
+            tasks=tasks, 
+            verbose=True, 
             planning=True,
-            planning_llm=LLMFactory.init_planning_llm(),
-            output_log_file=log_crew,
+            planning_llm=LLMFactory.init_planning_llm(), 
+            output_log_file=log_crew
         )
     except Exception as e:
         print(f"Error creating crew: {str(e)}")
         raise
 
+
 def main():
     try:
-        validate_environment()
+        os.system('cls' if os.name == 'nt' else 'clear')
         
         print(
             f"""
@@ -156,6 +155,12 @@ def main():
             -------------------
             """
         )
+
+        # Execute start.py and capture its output
+        start_output = subprocess.run(
+            ["python", "start.py"], capture_output=True, text=True
+        ).stdout
+        print(start_output)
 
         crew = create_crew()
         crew.kickoff()

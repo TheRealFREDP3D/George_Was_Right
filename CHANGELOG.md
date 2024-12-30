@@ -1,4 +1,14 @@
-# George_Was_Right - /CHANGELOG.md
+# George_Was_Right - CHANGELOG.md
+
+|          |                                        |  
+|   ---    |                  ---                   |  
+|File      | CHANGELOG.md                           | 
+|Author    | Frederick Pellerin <fredp3d@proton.me> | 
+|Github    | <https://github.com/TheRealFREDP3D/>   |  
+|Twitter/X | <https://x.com/TheRealFredP3D/>        |  
+|Modified  | 29-12-2024                             |  
+
+
 
 ## [v0.4]
 

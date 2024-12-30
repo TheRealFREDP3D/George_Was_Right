@@ -1,244 +1,172 @@
+# ==================================================+ #
+# George_Was_Right - Env. Variables Manager/Launcher  #
+# --------------------------------------------------- #
+# Filename: start.py                                  #
+# --------------------------------------------------- #
+# Author: Frederick Pellerin <fredp3d@proton.me>      #
+# Github: https://github.com/TheRealFREDP3D/          #
+# Twitter/X: https://x.com/TheRealFredP3D/            #
+# --------------------------------------------------- #
+# Modified: <date>                                    #
+# =================================================== #
+
 import os
-import sys
+import rich
 from rich.console import Console
-from rich.theme import Theme
 from rich.table import Table
-from rich.prompt import Prompt, Confirm
-from rich.panel import Panel
-from rich import box
-from rich.text import Text
-from rich.group import Group  # Add this import
-from typing import Dict, Optional
-import shutil
-import subprocess
+from rich.console import JustifyMethod
 
-# Define the theme with more colors
-custom_theme = Theme({
-    "primary": "#3498db",  # Blue
-    "secondary": "#f1c40f",  # Yellow
-    "success": "#2ecc71",  # Green
-    "error": "#e74c3c",  # Red
-    "warning": "#e67e22",  # Orange
-    "info": "#95a5a6",  # Gray
-})
-
-console = Console(theme=custom_theme)
+# Initialize Rich Console for pretty printing
+console = Console()
 
 
-class EnvManager:
-    def __init__(self, env_file: str = ".env.example"):
-        self.env_file = env_file
-        self.env_data: Dict[str, str] = {}
-        self.backup_file = f"{env_file}.backup"
-        self.modified = False
-
-    def create_backup(self) -> None:
-        """Create a backup of the current env file"""
-        if os.path.exists(self.env_file):
-            shutil.copy2(self.env_file, self.backup_file)
-            console.print("[info]Backup created successfully[/info]")
-
-    def restore_backup(self) -> None:
-        """Restore from backup file"""
-        if os.path.exists(self.backup_file):
-            shutil.copy2(self.backup_file, self.env_file)
-            os.remove(self.backup_file)
-            console.print("[success]Backup restored successfully[/success]")
-            self.load_env_file()
-        else:
-            console.print("[error]No backup file found![/error]")
-
-    def load_env_file(self) -> bool:
-        """Load environment variables from file"""
-        try:
-            if not os.path.exists(self.env_file):
-                console.print(
-                    f"[warning]File {self.env_file} not found. Creating new file.[/warning]"
-                )
-                return False
-
-            self.env_data.clear()
-            with open(self.env_file, "r") as f:
-                for line_num, line in enumerate(f.readlines(), 1):
-                    line = line.strip()
-                    if line and not line.startswith("#"):
-                        try:
-                            key, value = line.split("=", 1)
-                            self.env_data[key.strip()] = value.strip()
-                        except ValueError:
-                            console.print(
-                                f"[error]Invalid format at line {line_num}: {line}[/error]"
-                            )
-            return True
-        except Exception as e:
-            console.print(f"[error]Error loading file: {str(e)}[/error]")
-            return False
-
-    def save_env_file(self) -> bool:
-        """Save environment variables to file"""
-        try:
-            # Create backup before saving
-            self.create_backup()
-
-            with open(self.env_file, "w") as f:
-                # Sort keys for consistent output
-                for key in sorted(self.env_data.keys()):
-                    f.write(f"{key}={self.env_data[key]}\n")
-
-            console.print("[success]Changes saved successfully![/success]")
-            self.modified = False
-            return True
-        except Exception as e:
-            console.print(f"[error]Error saving file: {str(e)}[/error]")
-            return False
-
-    def display_values(self) -> None:
-        """Display current environment variables in a table"""
-        if not self.env_data:
-            console.print("[warning]No environment variables found[/warning]")
-            return
-
-        table = Table(box=box.ROUNDED)
-        table.add_column("Variable Name", style="primary")
-        table.add_column("Value", style="secondary")
-
-        for key in sorted(self.env_data.keys()):
-            table.add_row(key, self.env_data[key])
-
-        console.print(Panel(table, title="Current Environment Variables"))
-
-    def edit_value(self, key: Optional[str] = None) -> None:
-        """Edit value for a given key"""
-        if not key:
-            key = Prompt.ask("Enter key to edit")
-
-        if key in self.env_data:
-            current_value = self.env_data[key]
-            console.print(f"Current value: [secondary]{current_value}[/secondary]")
-            new_value = Prompt.ask("Enter new value", default=current_value)
-            if new_value != current_value:
-                self.env_data[key] = new_value
-                self.modified = True
-                console.print("[success]Value updated successfully[/success]")
-        else:
-            console.print("[error]Key not found![/error]")
-            if Confirm.ask("Would you like to add this as a new key?"):
-                self.add_new_entry(key)
-
-    def add_new_entry(self, key: Optional[str] = None) -> None:
-        """Add a new environment variable"""
-        if not key:
-            key = Prompt.ask("Enter new key").strip().upper()
-
-        if key in self.env_data:
-            console.print("[warning]Key already exists![/warning]")
-            if Confirm.ask("Would you like to edit the existing value?"):
-                self.edit_value(key)
-            return
-
-        value = Prompt.ask("Enter value")
-        self.env_data[key] = value
-        self.modified = True
-        console.print("[success]New entry added successfully[/success]")
-
-    def execute_main(self) -> None:
-        """Execute main.py with current environment variables"""
-        try:
-            if self.modified and Confirm.ask("Save changes before executing?"):
-                self.save_env_file()
-
-            console.print("[info]Executing main.py...[/info]")
-            result = subprocess.run(["python", "main.py"], capture_output=True, text=True)
-
-            if result.returncode == 0:
-                console.print("[success]Execution completed successfully[/success]")
-                if result.stdout:
-                    console.print(Panel(result.stdout, title="Output"))
-            else:
-                console.print("[error]Execution failed![/error]")
-                if result.stderr:
-                    console.print(Panel(result.stderr, title="Error", style="error"))
-        except Exception as e:
-            console.print(f"[error]Error executing main.py: {str(e)}[/error]")
+# Function to clear the screen
+def clear_screen():
+    os.system("cls" if os.name == "nt" else "clear")
 
 
-def display_menu(env_manager: EnvManager) -> None:
-    """Display the main menu with environment variables and a welcome message"""
-    menu_items = [
-        ("1", "View Current Values"),
-        ("2", "Edit Value"),
-        ("3", "Add New Entry"),
-        ("4", "Save Changes"),
-        ("5", "Restore from Backup"),
-        ("6", "Execute main.py"),
-        ("q", "Quit"),
-    ]
+# Function to load .env file content
+def load_env_file():
+    # List of characters that indicate a line should be skipped if it starts with them
+    skip_characters = [" ", "#", "\n", "\t"]
+    
+    try:
+        # Determine which env file to use - prefer .env, fall back to .env.example
+        env_file = ".env" if os.path.exists(".env") else ".env.example"
 
-    # Create a table for the environment variables
-    env_table = Table(box=None, show_header=False)
-    env_table.add_column("Variable Name", style="primary")
-    env_table.add_column("Value", style="secondary")
+        # If neither file exists, return an empty list
+        if not os.path.exists(env_file):
+            return []
 
-    for key in sorted(env_manager.env_data.keys()):
-        env_table.add_row(key, env_manager.env_data[key])
-
-    # Create a panel for the environment variables
-    env_panel = Panel(env_table, title="Current Environment Variables")
-
-    # Create a panel for the welcome message and commands
-    welcome_message = (
-        "Welcome to the Environment Manager!\n\n"
-        "Available commands:\n"
-        "1. View Current Values\n"
-        "2. Edit Value\n"
-        "3. Add New Entry\n"
-        "4. Save Changes\n"
-        "5. Restore from Backup\n"
-        "6. Execute main.py\n"
-        "q. Quit"
-    )
-    welcome_panel = Panel(welcome_message, title="Environment Manager", subtitle="Choose an option")
-
-    # Display both panels side by side
-    console.print(Panel(Group(env_panel, welcome_panel), box=box.ROUNDED))
+        # Open and read the determined file
+        with open(env_file, "r") as file:
+            # Process each line, keeping only valid environment variable entries
+            valid_lines = []
+            for line in file.readlines():
+                # Skip empty lines
+                if not line.strip():
+                    continue
+                    
+                # Skip lines that start with any character from skip_characters
+                if any(line.startswith(char) for char in skip_characters):
+                    continue
+                    
+                # If we get here, the line is valid - add it to our list
+                valid_lines.append(line.strip())
+                
+            return valid_lines
+            
+    except Exception as e:
+        console.print(f"[bold red]Error loading {env_file} file: {e}[/bold red]")
+        return []
 
 
+# Function to save .env file content
+def save_env_file(lines):
+    try:
+        # First, let's create a backup of the existing .env file if it exists
+        if os.path.exists(".env"):
+            # Read the current contents of .env before we overwrite it
+            with open(".env", "r") as current_file:
+                current_contents = current_file.read()
+            
+            # Save the current contents to .env.bak
+            with open(".env.bak", "w") as backup_file:
+                backup_file.write(current_contents)
+
+        # Now we can safely write the new contents to .env
+        with open(".env", "w") as file:
+            for line in lines:
+                file.write(line + "\n")
+                
+        # If we get here, everything worked successfully
+        console.print("[bold green]Environment file saved successfully with backup.[/bold green]")
+        
+    except PermissionError:
+        console.print("[bold red]Error: No permission to write to .env or .env.bak file[/bold red]")
+    except IOError as e:
+        console.print(f"[bold red]Error: Failed to write to environment files: {e}[/bold red]")
+
+
+# Function to show user feedback
+def show_feedback(message):
+    console.print(f"[bold green]{message}[/bold green]")
+
+
+# Main function to create and run the TUI
 def main():
-    env_manager = EnvManager()
-    env_manager.load_env_file()
+    env_lines = load_env_file()
+    show_message = None  # Add a variable to store feedback messages
 
     while True:
-        display_menu()
-        while True:
-            choice = Prompt.ask("> ", choices=["1", "2", "3", "4", "5", "6", "q"], show_choices=False)
-            if choice:
-                break
-            console.print("Please select one of the available options")
+        clear_screen()
+        console.print("[bold blue]     [.env] MasterManager[/bold blue]")
+        console.print("=" * 30)
 
-        if choice == "q":
-            if env_manager.modified:
-                if Confirm.ask("You have unsaved changes. Save before quitting?"):
-                    env_manager.save_env_file()
+        # Display the table as before
+        table = Table(
+            title="",
+            show_header=False,
+            box=None,
+            show_lines=True,
+            title_justify="center",
+        )
+        for i, line in enumerate(env_lines):
+            table.add_row(f"{i + 1}", line)
+
+        console.print(table)
+
+        # If there's a feedback message, display it
+        if show_message:
+            console.print(f"[bold green]{show_message}[/bold green]")
+            show_message = None  # Clear the message after showing it
+
+        # Display options menu with styling
+        console.print("\n[bold yellow]Options:[/bold yellow]")
+        console.print("1. Edit Line")
+        console.print("2. Add New Line")
+        console.print("3. Delete Line")
+        console.print("4. Save Changes")
+        console.print("5. Execute main.py")
+        console.print("6. Exit")
+
+        choice = input("\nEnter your choice: ")
+
+        if choice == "1":
+            try:
+                line_num = int(input("Enter line number to edit: ")) - 1
+                new_value = input(f"Edit: {env_lines[line_num].split('=')[0]}=")
+                env_lines[line_num] = f"{env_lines[line_num].split('=')[0]}=" + new_value.strip()
+                show_message = "Line updated."
+            except (ValueError, IndexError):
+                show_message = "[bold red]Invalid line number.[/bold red]"
+
+        elif choice == "2":
+            new_line = input("Enter new line: ").strip()
+            if new_line:
+                env_lines.append(new_line)
+                show_message = "New line added."
+
+        elif choice == "3":
+            try:
+                line_num = int(input("Enter line number to delete: ")) - 1
+                del env_lines[line_num]
+                show_message = "Line deleted."
+            except (ValueError, IndexError):
+                show_message = "[bold red]Invalid line number.[/bold red]"
+
+        elif choice == "4":
+            save_env_file(env_lines)
+            show_message = "Changes saved."
+
+        elif choice == "5":
+            show_message = "Executing main.py..."
+            time.sleep(1.5)  # Give time to read the message
+            os.system("python main.py")
             break
 
-        actions = {
-            "1": env_manager.display_values,
-            "2": env_manager.edit_value,
-            "3": env_manager.add_new_entry,
-            "4": env_manager.save_env_file,
-            "5": env_manager.restore_backup,
-            "6": env_manager.execute_main,
-        }
-
-        actions[choice]()
-
-        # Add a blank line for better readability
-        console.print()
-
+        elif choice == "6":
+            break
 
 if __name__ == "__main__":
-    try:
-        main()
-    except KeyboardInterrupt:
-        console.print("\n[warning]Program terminated by user[/warning]")
-        sys.exit(0)
+    main()

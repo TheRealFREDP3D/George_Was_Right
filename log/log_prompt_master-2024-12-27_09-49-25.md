@@ -1,0 +1,1 @@
+These two sets of prompts provide vivid and descriptive visual elements for illustrating the recent event of the NSA mass surveillance program and the '1984' theme of Government Surveillance and Control.

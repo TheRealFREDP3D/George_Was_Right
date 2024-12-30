@@ -51,13 +51,8 @@
 
 - [X] Create a main function to run the project.
 - [X] Imports
-- [ ] Classes
-- [ ] Functions
+- [X] Classes
+- [X] Functions
 - [ ] Tests
 
 ---
-
-v0.4
-
-Target structure:
-![Rework the structure](images\TODO-v0.4.png)
