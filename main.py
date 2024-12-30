@@ -23,7 +23,7 @@ class ResearcherAgent(Agent):
     def __init__(self, search_tool=None, **kwargs):
         if not search_tool:
             raise ValueError("search_tool is required for ResearcherAgent")
-            
+
         super().__init__(
             role="Researcher",
             goal=(
@@ -38,7 +38,7 @@ class ResearcherAgent(Agent):
             verbose=True,
             llm=LLMFactory.init_llm(),
             tools=[search_tool],
-            **kwargs
+            **kwargs,
         )
 
 
@@ -57,17 +57,16 @@ class WriterAgent(Agent):
             allow_delegation=True,
             verbose=True,
             llm=LLMFactory.init_llm(),
-            **kwargs
+            **kwargs,
         )
+
 
 
 class PromptMasterAgent(Agent):
     def __init__(self, **kwargs):
         super().__init__(
             role="Prompt Master",
-            goal=(
-                "Create visual concepts based on provided prompts"
-            ),
+            goal=("Create visual concepts based on provided prompts"),
             backstory=(
                 "You are a talented illustrator with a knack for translating ideas "
                 "into compelling visuals."
@@ -75,8 +74,9 @@ class PromptMasterAgent(Agent):
             allow_delegation=False,
             verbose=True,
             llm=LLMFactory.init_llm(),
-            **kwargs
+            **kwargs,
         )
+
 
 
 def create_tasks(researcher, writer, prompt_master):
@@ -92,7 +92,7 @@ def create_tasks(researcher, writer, prompt_master):
                 "A report containing recent events that are linked to the themes "
                 "described in Orwell's book, '1984'"
             ),
-            output_file=log_researcher
+            output_file=log_researcher,
         ),
         Task(
             name="Writer Task",
@@ -119,11 +119,15 @@ def create_tasks(researcher, writer, prompt_master):
                 "for the recent event and one for the '1984' book theme."
             ),
             output_file=log_prompt_master,
-        )
+        ),
     ]
 
 
+
 def create_crew():
+    try:
+        researcher = ResearcherAgent(search_tool=search_tool)
+        writer = WriterAgent()
     try:
         researcher = ResearcherAgent(search_tool=search_tool)
         writer = WriterAgent()
@@ -142,10 +146,11 @@ def create_crew():
         raise
 
 
+
 def main():
     try:
-        os.system('cls' if os.name == 'nt' else 'clear')
-        
+        validate_environment()
+
         print(
             f"""
             -------------------
@@ -177,6 +182,7 @@ def main():
     except Exception as e:
         print(f"Error running application: {str(e)}")
         raise
+
 
 if __name__ == "__main__":
     main()
