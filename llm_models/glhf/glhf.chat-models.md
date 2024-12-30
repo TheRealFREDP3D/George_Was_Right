@@ -1,10 +1,11 @@
+# GLHF
+
 <https://glhf.chat/api/openai/v1>
 
 Qwen/Qwen2.5-Coder-32B-Instruct
 Qwen/Qwen2.5-72B-Instruct
 Qwen/QwQ-32B-Preview
 meta-llama/Llama-3.1-405B-Instruct
-meta-llama/Llama-3.3-70B-Instruct
 meta-llama/Llama-3.1-70B-Instruct
 meta-llama/Llama-3.2-3B-Instruct
 meta-llama/Llama-3.3-70B-Instruct
