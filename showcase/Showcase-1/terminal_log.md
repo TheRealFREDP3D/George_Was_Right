@@ -1,24 +1,22 @@
 [2024-12-25 23:19:42][INFO]: Planning the crew execution
-2024-12-25 23:19:42,636 - 13988 - llm.py-llm:187 - ERROR: Failed to get supported params: argument of type 'NoneType' is not iterable
-2024-12-25 23:19:42,638 - 13988 - llm.py-llm:187 - ERROR: Failed to get supported params: argument of type 'NoneType' is not iterable
 
 # Agent: Researcher
 
 ## Task
 
-            Search for recent real world news that demonstrate how Orwell's book
-            '1984' is still relevant today
-            1. The Researcher agent will use the 'Search the internet' tool to find recent news events from 2024 that align with the themes of Orwell's '1984'.     
+Search for recent real world news that demonstrate how Orwell's book
+1984' is still relevant today
+
+1. The Researcher agent will use the 'Search the internet' tool to find recent news events from 2024 that align with the themes of Orwell's '1984'.
 2. The agent will begin by identifying key themes from '1984', such as surveillance, censorship, propaganda, authoritarianism, and manipulation of truth.
 3. The agent will create specific search queries to target these themes, such as '2024 news on government surveillance', '2024 censorship in media', '2024 propaganda in politics', '2024 authoritarian regimes', and '2024 manipulation of information'.
 4. The agent will use the 'Search the internet' tool to execute these queries and retrieve the top two results for each query.
 5. The agent will analyze the retrieved articles to ensure they are recent (from 2024) and relevant to the themes of '1984'.
-6. The agent will compile a report summarizing the most relevant news events, including the title, source, date, and a brief description of how each event connects
-to a theme from '1984'.
+6. The agent will compile a report summarizing the most relevant news events, including the title, source, date, and a brief description of how each event connects to a theme from '1984'.
 
 # Agent: Researcher
 
-## Thought: Thought: I need to identify the key themes from Orwell's '1984' to create specific search queries. The major themes include surveillance, censorship, propaganda, authoritarianism, and manipulation of truth
+## Thought: Thought: I need to identify the key themes from Orwell's '1984' to create specific search queries. The major themes include surveillance, censorship, propaganda, authoritarianism, and manipulation of truth.
 
 ## Using tool: Search the internet
 
