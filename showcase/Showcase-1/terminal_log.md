@@ -177,10 +177,9 @@ These recent events demonstrate the ongoing relevance of Orwell's '1984' in 2024
 
 ## Task
 
-            Compare the news events with themes from '1984' and
-            select the most relevant match to write a small article on the
-            subject.
-            1. The Writer agent will review the report created by the Researcher agent, which contains recent news events linked to the themes of '1984'.
+Compare the news events with themes from '1984' and select the most relevant match to write a small article on the subject.
+
+1. The Writer agent will review the report created by the Researcher agent, which contains recent news events linked to the themes of '1984'.
 2. The agent will carefully analyze each event and its connection to the themes of '1984', such as surveillance, censorship, propaganda, authoritarianism, and manipulation of truth.
 3. The agent will select the news event that has the strongest and most direct correlation to a specific theme from '1984'.
 4. The agent will outline the article by including the following sections:
