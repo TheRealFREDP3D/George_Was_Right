@@ -1,4 +1,4 @@
-# George-Was-Right v0.3 - README.md
+# George-Was-Right v0.5 - README.md
 
 ![Generated with DALL-E and a prompt from the Illustrator Agent](images/Header.png)
 
@@ -96,11 +96,11 @@ George-Was-Right is a project I’ve been working on to learn Python. I needed  
 
 Like a lot of people during the pandemic, I was stuck at home with too much time on my hands. That’s when I decided to finally dive back into coding. I had just finished reading '1984' and taught, “Why not make something in George Orwell’s world?” My first idea was to make a small game. I wasn't really serious about this project until I discovered LLMs, Ollama and CrewAI. My project idea took a hard left turn. It was definitely a stretch for my skills at the time, but I love a good challenge. It forced me to read, learn, and experiment. Plus, who doesn’t like an excuse to Google stuff?
 
-What started as a “just for fun” hobby has turned into something more. I’m working on it in my spare time because, well, it’s fun and satisfying. At 40, I’ve finally found something I actually enjoy doing—and I’m starting to think it might be time for a career change. During daytime, I work at a private yacht club doing maintenance, building, and fixing things, mainly around the property and boats. No computers in sight, which is actually a bit wild when I think about it now. But here I am, trying to figure out Python while also being a handyman.
+What started as a “just for fun” hobby has turned into something more. I’m working on it in my spare time because, as much as I find it’s fun and satisfying, it doesn't pay the bills. 
 
-So, I’m cooking up an "exit plan" from the yacht life and trying to carve out some time to dive deeper into tech. Wish me luck!
+---
 
-This is the second iteration of George-was-Right. The original version became unmanageable due to accumulating changes and a lack of version control. Starting fresh enabled a focus on better coding practices, structured development, and Git-based version control.
+This consist of the second iteration of George-was-Right. The original version became unmanageable due to accumulating changes and a lack of version control. Starting fresh enabled a focus on better coding practices, structured development, and Git-based version control.
 
 I hope you find this project interesting.
 
