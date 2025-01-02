@@ -112,11 +112,11 @@ I hope you find this project interesting.
 - Effective use of Git for managing changes.
 - Best practices for Python project structuring and imports.
 - Benefits of regular backups and separating development from production environments.
-- Keeping notes and keep documentation updated.
+- Keeping notes and documentation updated.
 
 ---
 
-![Generated with DALL-E and a prompt from the Illustrator Agent](images\ministry-of-truth-soviet-touch.jpg)
+![Generated with DALL-E and a prompt from the Illustrator Agent](images/ministry-of-truth-soviet-touch.jpg)
 
 ---
 
@@ -216,10 +216,10 @@ Please ensure changes are well-tested and documented. Refer to the [Contribution
 
 ---
 
-**License:** MIT License. See the [LICENSE](LICENSE) file for details.  
+**License:** MIT License. See the [LICENSE](LICENSE) file for details.
 
 ---
 
 ![Generated with DALL-E and a prompt from the Illustrator Agent](images/big-brother-is-watching.jpg)
 
-**Modified:** December 25, 2024
+**Modified:** January 1, 2025
