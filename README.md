@@ -198,7 +198,7 @@ Feel free to use the code as you see fit. I'm not a professional programmer, so 
 If you have any questions or suggestions, please feel free to contact me or open an issue.
 And I'm curious and really interested to know what you think about this project and if you have any ideas for improvements.
 
-I would appreciate to learn about which models you've tried and what works best for you to add a listing to the documentation.
+I would appreciate learning about which models you've tried and what works best for you to add a listing to the documentation.
 
 ---
 
