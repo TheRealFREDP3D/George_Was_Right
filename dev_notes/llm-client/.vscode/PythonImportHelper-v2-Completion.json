@@ -1,0 +1,154 @@
+[
+    {
+        "label": "openai",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "openai",
+        "description": "openai",
+        "detail": "openai",
+        "documentation": {}
+    },
+    {
+        "label": "OpenAI",
+        "importPath": "openai",
+        "description": "openai",
+        "isExtraImport": true,
+        "detail": "openai",
+        "documentation": {}
+    },
+    {
+        "label": "os",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "os",
+        "description": "os",
+        "detail": "os",
+        "documentation": {}
+    },
+    {
+        "label": "client",
+        "kind": 5,
+        "importPath": "deepseek-client",
+        "description": "deepseek-client",
+        "peekOfCode": "client = OpenAI(\n    api_key=os.getenv(\"DEEPSEEK_API_KEY\"),\n    base_url=\"https://api.deepseek.com\"\n)\nresponse = client.chat.completions.create(\n    model=\"deepseek-chat\",\n    messages=[\n        {\"role\": \"system\", \"content\": \"You are a helpful assistant\"},\n        {\"role\": \"user\", \"content\": \"Hello\"},\n    ],",
+        "detail": "deepseek-client",
+        "documentation": {}
+    },
+    {
+        "label": "response",
+        "kind": 5,
+        "importPath": "deepseek-client",
+        "description": "deepseek-client",
+        "peekOfCode": "response = client.chat.completions.create(\n    model=\"deepseek-chat\",\n    messages=[\n        {\"role\": \"system\", \"content\": \"You are a helpful assistant\"},\n        {\"role\": \"user\", \"content\": \"Hello\"},\n    ],\n    stream=False\n)\nprint(response.choices[0].message.content)",
+        "detail": "deepseek-client",
+        "documentation": {}
+    },
+    {
+        "label": "llm_model_name",
+        "kind": 5,
+        "importPath": "GLHF-client",
+        "description": "GLHF-client",
+        "peekOfCode": "llm_model_name = \"openai/hf:NousResearch/Nous-Hermes-2-Mixtral-8x7B-DPO\"\nplanning_llm_name = \"github/gpt-4o\"\nbase_url = os.getenv(\"OPENAI_API_BASE\")\nllm = LLM(model=llm_model_name, temperature=0.3)\nplanning_llm = LLM(model=planning_llm_name, temperature=0.1)",
+        "detail": "GLHF-client",
+        "documentation": {}
+    },
+    {
+        "label": "planning_llm_name",
+        "kind": 5,
+        "importPath": "GLHF-client",
+        "description": "GLHF-client",
+        "peekOfCode": "planning_llm_name = \"github/gpt-4o\"\nbase_url = os.getenv(\"OPENAI_API_BASE\")\nllm = LLM(model=llm_model_name, temperature=0.3)\nplanning_llm = LLM(model=planning_llm_name, temperature=0.1)",
+        "detail": "GLHF-client",
+        "documentation": {}
+    },
+    {
+        "label": "base_url",
+        "kind": 5,
+        "importPath": "GLHF-client",
+        "description": "GLHF-client",
+        "peekOfCode": "base_url = os.getenv(\"OPENAI_API_BASE\")\nllm = LLM(model=llm_model_name, temperature=0.3)\nplanning_llm = LLM(model=planning_llm_name, temperature=0.1)",
+        "detail": "GLHF-client",
+        "documentation": {}
+    },
+    {
+        "label": "llm",
+        "kind": 5,
+        "importPath": "GLHF-client",
+        "description": "GLHF-client",
+        "peekOfCode": "llm = LLM(model=llm_model_name, temperature=0.3)\nplanning_llm = LLM(model=planning_llm_name, temperature=0.1)",
+        "detail": "GLHF-client",
+        "documentation": {}
+    },
+    {
+        "label": "planning_llm",
+        "kind": 5,
+        "importPath": "GLHF-client",
+        "description": "GLHF-client",
+        "peekOfCode": "planning_llm = LLM(model=planning_llm_name, temperature=0.1)",
+        "detail": "GLHF-client",
+        "documentation": {}
+    },
+    {
+        "label": "client",
+        "kind": 5,
+        "importPath": "openai-client",
+        "description": "openai-client",
+        "peekOfCode": "client = openai.OpenAI(\n    base_url=\"https://api.groq.com/openai/v1\",\n    api_key=os.environ.get(\"GROQ_API_KEY\")\n)",
+        "detail": "openai-client",
+        "documentation": {}
+    },
+    {
+        "label": "os.environ[\"OPENAI_API_KEY\"]",
+        "kind": 5,
+        "importPath": "openai_env_var",
+        "description": "openai_env_var",
+        "peekOfCode": "os.environ[\"OPENAI_API_KEY\"] = \"your-api-key\"\nos.environ[\"OPENAI_API_BASE\"] = \"https://api.your-provider.com/v1\"\nos.environ[\"OPENAI_MODEL_NAME\"] = \"your-model-name\"",
+        "detail": "openai_env_var",
+        "documentation": {}
+    },
+    {
+        "label": "os.environ[\"OPENAI_API_BASE\"]",
+        "kind": 5,
+        "importPath": "openai_env_var",
+        "description": "openai_env_var",
+        "peekOfCode": "os.environ[\"OPENAI_API_BASE\"] = \"https://api.your-provider.com/v1\"\nos.environ[\"OPENAI_MODEL_NAME\"] = \"your-model-name\"",
+        "detail": "openai_env_var",
+        "documentation": {}
+    },
+    {
+        "label": "os.environ[\"OPENAI_MODEL_NAME\"]",
+        "kind": 5,
+        "importPath": "openai_env_var",
+        "description": "openai_env_var",
+        "peekOfCode": "os.environ[\"OPENAI_MODEL_NAME\"] = \"your-model-name\"",
+        "detail": "openai_env_var",
+        "documentation": {}
+    },
+    {
+        "label": "os.environ[\"OPENAI_API_KEY\"]",
+        "kind": 5,
+        "importPath": "openai_generic",
+        "description": "openai_generic",
+        "peekOfCode": "os.environ[\"OPENAI_API_KEY\"] = \"your-api-key\"\nos.environ[\"OPENAI_API_BASE\"] = \"https://api.your-provider.com/v1\"\nos.environ[\"OPENAI_MODEL_NAME\"] = \"your-model-name\"",
+        "detail": "openai_generic",
+        "documentation": {}
+    },
+    {
+        "label": "os.environ[\"OPENAI_API_BASE\"]",
+        "kind": 5,
+        "importPath": "openai_generic",
+        "description": "openai_generic",
+        "peekOfCode": "os.environ[\"OPENAI_API_BASE\"] = \"https://api.your-provider.com/v1\"\nos.environ[\"OPENAI_MODEL_NAME\"] = \"your-model-name\"",
+        "detail": "openai_generic",
+        "documentation": {}
+    },
+    {
+        "label": "os.environ[\"OPENAI_MODEL_NAME\"]",
+        "kind": 5,
+        "importPath": "openai_generic",
+        "description": "openai_generic",
+        "peekOfCode": "os.environ[\"OPENAI_MODEL_NAME\"] = \"your-model-name\"",
+        "detail": "openai_generic",
+        "documentation": {}
+    }
+]

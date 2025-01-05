@@ -1,4 +1,4 @@
-# George-Was-Right v0.5 - README.md
+# George-Was-Right v0.6 - README.md
 
 ![Generated with DALL-E and a prompt from the Illustrator Agent](images/Header.png)
 
@@ -67,12 +67,7 @@ This project aims to provide a nuanced examination of how contemporary society r
   - [Prompt1.Dall-E-3.jpg](showcase/Showcase-1/Prompt1.Dall-E-3.jpg)
   - [Prompt1.Dall-E-4.jpg](showcase/Showcase-1/Prompt1.Dall-E-4.jpg)
   - [Prompt1.Dall-E.jpg](showcase/Showcase-1/Prompt1.Dall-E.jpg)
-  - [Prompt2-ChatGPT.jpg](showcase/Showcase-1/Prompt2-ChatGPT.jpg)
-  - [Prompt2-Dall-E-2.jpg](showcase/Showcase-1/Prompt2-Dall-E-2.jpg)
-  - [Prompt2-Dall-E-3.jpg](showcase/Showcase-1/Prompt2-Dall-E-3.jpg)
-  - [Prompt2-Dall-E-4.jpg](showcase/Showcase-1/Prompt2-Dall-E-4.jpg)
-  - [Prompt2-Dall-E.jpg](showcase/Showcase-1/Prompt2-Dall-E.jpg)
-- **Terminal Log:** [terminal_log.md](showcase/Showcase-1/terminal_log.md)
+  **Terminal Log:** [terminal_log.md](showcase/Showcase-1/terminal_log.md)
 
 ### Showcase-2
 
@@ -82,7 +77,7 @@ This project aims to provide a nuanced examination of how contemporary society r
   - [Prompt2-Dalle-E-3.jfif](showcase/Showcase-2/Prompt2-Dalle-E-3.jfif)
   - [Prompt2-Dalle-E-4.jfif](showcase/Showcase-2/Prompt2-Dalle-E-4.jfif)
   - [Prompt2-Dalle-E.jfif](showcase/Showcase-2/Prompt2-Dalle-E.jfif)
-- **Terminal Output:** [terminal-output--26-12-2024.md](showcase/Showcase-2/terminal-output--26-12-2024.md)
+- **Terminal Output:** [terminal-output--26-12-2024.md](showcase/Showcase-2/terminal_log2.md)
 
 ---
 
@@ -96,7 +91,7 @@ George-Was-Right is a project I’ve been working on to learn Python. I needed  
 
 Like a lot of people during the pandemic, I was stuck at home with too much time on my hands. That’s when I decided to finally dive back into coding. I had just finished reading '1984' and taught, “Why not make something in George Orwell’s world?” My first idea was to make a small game. I wasn't really serious about this project until I discovered LLMs, Ollama and CrewAI. My project idea took a hard left turn. It was definitely a stretch for my skills at the time, but I love a good challenge. It forced me to read, learn, and experiment. Plus, who doesn’t like an excuse to Google stuff?
 
-What started as a “just for fun” hobby has turned into something more. I’m working on it in my spare time because, as much as I find it’s fun and satisfying, it doesn't pay the bills. 
+What started as a “just for fun” hobby has turned into something more. I’m working on it in my spare time because, as much as I find it’s fun and satisfying, it doesn't pay the bills.
 
 ---
 
@@ -161,11 +156,27 @@ Follow these steps to set up the project:
    pip install -r requirements.txt
    ```
 
-6. Run the project:
+6. Get an API key for free from Github and add it to your .env file.  
+   - Go to the Marketplace and search for "Github API" and click on the "Get it free" button.
+   - Add the API key to your .env file.
+
+```bash
+GITHUB_API_KEY=your_github_api_key
+```
+
+7. Get an API key for free from SerperDev and add it to your .env file.
+
+```sh
+SERPER_API_KEY=your_serper_api_key
+```
+
+8. Run the project:
 
    ```bash
    python main.py
    ```
+
+The project will run and create logs in the /log folder.
 
 ---
 
@@ -173,6 +184,21 @@ Follow these steps to set up the project:
 
 - Python 3.8 or later
 - Internet connection for AI-powered agents or use Ollama for local usage.
+- Github API key
+- SerperDev API key
+
+## Notes
+
+It's possible to use other LLM models, but you will need to change the model in the .env file and tweak the code in the src/llm.py file. By default I used gpt-4o because it produces the best results without having to pay for it. I have made a lot of tests with other models and I can say that the results are not always good.
+
+Please, be aware that the LLM models have different capabilities and limitations.
+
+Feel free to use the code as you see fit. I'm not a professional programmer, so I'm sure there are many improvements that can be made...  
+
+If you have any questions or suggestions, please feel free to contact me or open an issue.
+And I'm curious and really interested to know what you think about this project and if you have any ideas for improvements.
+
+I would appreciate to learn about which models you've tried and what works best for you to add a listing to the documentation.
 
 ---
 
@@ -222,4 +248,4 @@ Please ensure changes are well-tested and documented. Refer to the [Contribution
 
 ![Generated with DALL-E and a prompt from the Illustrator Agent](images/big-brother-is-watching.jpg)
 
-**Modified:** January 1, 2025
+**Modified:** January 5, 2025
