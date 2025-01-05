@@ -6,8 +6,8 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # LLM parameters
-llm_model_name = os.getenv('LLM_MODEL_NAME', 'gemini/gemini-1.5-flash')
-planning_llm_name = os.getenv('PLANNING_LLM_MODEL_NAME', 'github/gpt-4o')
+llm_model_name = os.getenv('LLM_MODEL_NAME', 'ollama/Phi-3-mini-4k-instruct-q4:latest')
+planning_llm_name = os.getenv('PLANNING_LLM_MODEL_NAME', 'ollama/Phi-3-mini-4k-instruct-q4:latest')
 temperature_llm = float(os.getenv('TEMPERATURE_LLM', '0.7'))
 temperature_planning_llm = float(os.getenv('TEMPERATURE_PLANNING_LLM', '0.1'))
 
