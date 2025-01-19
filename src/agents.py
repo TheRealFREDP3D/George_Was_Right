@@ -14,6 +14,22 @@ from src.tools import search_tool
 from src.llm import LLMFactory
 
 class ResearcherAgent(Agent):
+    """
+Initializes a ResearcherAgent with a specified search tool and additional
+parameters.
+
+The ResearcherAgent is designed to find recent news that illustrate the
+continued relevance of Orwell's '1984'. It requires a search tool for
+operation and utilizes an LLM for processing. The agent is characterized
+by its role, goal, backstory, and the ability to delegate tasks.
+
+Parameters:
+    search_tool: A tool used for searching relevant news articles.
+    **kwargs: Additional parameters for the Agent initialization.
+
+Raises:
+    ValueError: If no search_tool is provided.
+"""
     def __init__(self, search_tool=None, **kwargs):
         if not search_tool:
             raise ValueError("search_tool is required for ResearcherAgent")
@@ -37,6 +53,12 @@ class ResearcherAgent(Agent):
 
 
 class WriterAgent(Agent):
+    """
+    Initializes a WriterAgent with specific role, goal, backstory, and LLM.
+
+    This agent is designed for gathering real-world news examples that resemble events from Orwell's '1984'.
+    It is configured with delegation enabled and verbose output.
+"""
     def __init__(self, **kwargs):
         super().__init__(
             role="Writer",
@@ -56,6 +78,12 @@ class WriterAgent(Agent):
 
 
 class PromptMasterAgent(Agent):
+    """
+    Initializes a PromptMasterAgent, responsible for creating visual concepts prompts.
+
+    This agent is configured with a specific role, goal, backstory, and LLM.
+    It does not allow task delegation.
+"""
     def __init__(self, **kwargs):
         super().__init__(
             role="Prompt Master",
@@ -72,6 +100,12 @@ class PromptMasterAgent(Agent):
 
 
 def create_tasks(researcher, writer, prompt_master):
+    """
+Creates and returns a list of Task objects for the crew.
+
+Each task is assigned to a specific agent and includes a description,
+expected output, and an output file for logging.
+"""
     return [
         Task(
             name="Researcher Task",
@@ -108,7 +142,7 @@ def create_tasks(researcher, writer, prompt_master):
             agent=prompt_master,
             expected_output=(
                 "Two sets of prompts that will be used to generate illustrations: one "
-                "for the recent event and one for the '1984' book theme."
+                "for the recent event and one for the '1984' related book theme."
             ),
             output_file=log_prompt_master,
         ),
