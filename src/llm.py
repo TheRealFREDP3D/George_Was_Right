@@ -1,6 +1,5 @@
 import os
 import logging
-from dotenv import load_dotenv
 from crewai import LLM
 from src.config import (
     llm_model_name,
@@ -14,56 +13,44 @@ from src.config import (
 # Configure logging
 logging.basicConfig(
     level=logging.INFO,
-    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
-)
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
 
-load_dotenv()
+# Environment variables are loaded in config.py
+
 
 class LLMFactory:
+    """Factory class to create LLM instances based on configuration."""
+
     @staticmethod
     def init_llm():
-        """Initialize the main LLM with fallback support"""
+        """Initialize the main LLM instance based on configuration."""
         try:
-            logger.info(f"Initializing LLM with model: {llm_model_name}")
-            # First try the configured model (likely local Ollama)
-            return LLM(
-                model=llm_model_name, 
-                base_url=os.getenv("OLLAMA_HOST", "http://0.0.0.0:11434"), 
-                temperature=temperature_llm
-            )
+            return LLM(model=llm_model_name, temperature=temperature_llm)
         except Exception as e:
-            logger.warning(f"Error initializing primary LLM: {str(e)}")
+            logger.error(
+                f"Failed to initialize main LLM {llm_model_name}: {str(e)}")
             if use_fallback:
-                logger.info(f"Using fallback LLM model: {fallback_llm_name}")
-                # Fallback to OpenAI or another cloud provider
-                return LLM(
-                    model=fallback_llm_name,
-                    temperature=temperature_llm
-                )
-            else:
-                # Re-raise if fallback is disabled
-                logger.error("Fallback is disabled, cannot proceed")
-                raise
+                logger.info(
+                    f"Attempting to use fallback LLM: {fallback_llm_name}")
+                return LLM(model=fallback_llm_name,
+                           temperature=temperature_llm)
+            raise
 
     @staticmethod
     def init_planning_llm():
-        """Initialize the planning LLM with fallback support"""
+        """Initialize the planning LLM instance based on configuration."""
         try:
-            logger.info(f"Initializing planning LLM with model: {planning_llm_name}")
-            return LLM(
-                model=planning_llm_name,
-                base_url=os.getenv("OLLAMA_HOST", "http://0.0.0.0:11434"), 
-                temperature=temperature_planning_llm
-            )
+            return LLM(model=planning_llm_name,
+                       temperature=temperature_planning_llm)
         except Exception as e:
-            logger.warning(f"Error initializing planning LLM: {str(e)}")
+            logger.error(
+                f"Failed to initialize planning LLM {planning_llm_name}: {str(e)}"
+            )
             if use_fallback:
-                logger.info(f"Using fallback LLM model for planning: {fallback_llm_name}")
-                return LLM(
-                    model=fallback_llm_name,
-                    temperature=temperature_planning_llm
+                logger.info(
+                    f"Attempting to use fallback LLM for planning: {fallback_llm_name}"
                 )
-            else:
-                logger.error("Fallback is disabled, cannot proceed")
-                raise
+                return LLM(model=fallback_llm_name,
+                           temperature=temperature_planning_llm)
+            raise

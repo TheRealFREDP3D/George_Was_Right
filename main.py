@@ -1,6 +1,7 @@
-#!/usr/bin/env python
 
 import os
+
+from crewai import Crew
 from rich import print
 from crewai import Agent, Task, Crew
 from dotenv import load_dotenv
@@ -8,36 +9,38 @@ from src.config import (
     log_researcher,
     log_writer,
     log_prompt_master,
+    log_editor,
     log_crew,
     llm_model_name,
     planning_llm_name,
     use_fallback,
+    fallback_llm_name,
 )
 from src.tools import search_tool
 from src.llm import LLMFactory
 from src.agents import (
+    PromptMasterAgent,
     ResearcherAgent,
     WriterAgent,
-    PromptMasterAgent,
-    create_tasks,
+    EditorAgent,
 )
-import subprocess
+from src.tasks import create_tasks
 
-# Load environment variables
-load_dotenv()
+# Environment variables are loaded in config.py
 
 def create_crew():
     try:
         researcher = ResearcherAgent(search_tool=search_tool)
         writer = WriterAgent()
         prompt_master = PromptMasterAgent()
-        tasks = create_tasks(researcher, writer, prompt_master)
+        editor = EditorAgent()
+        tasks = create_tasks(researcher, writer, prompt_master, editor)
         return Crew(
-            agents=[researcher, writer, prompt_master],
-            tasks=tasks, 
-            verbose=True, 
+            agents=[researcher, writer, prompt_master, editor],
+            tasks=tasks,
+            verbose=True,
             planning=True,
-            planning_llm=LLMFactory.init_planning_llm(), 
+            planning_llm=LLMFactory.init_planning_llm(),
             output_log_file=log_crew
         )
     except Exception as e:
@@ -58,11 +61,17 @@ def main():
         log_directory = os.path.dirname(log_crew)
         if not os.path.exists(log_directory):
             os.makedirs(log_directory)
-        
+            
+        # Check for configuration issues
+        from src.config import config_issues
+        if config_issues:
+            print("[ERROR] Configuration issues detected. Please fix them before continuing.")
+            return None
+
         print(
             f"""
             -------------------
-            LLM Models:  
+            LLM Models:
             - llm_model_name = {llm_model_name}
             - planning_llm_name = {planning_llm_name}  
             - Fallback Enabled = {use_fallback}
@@ -80,7 +89,7 @@ def main():
         print(
             f"""
             -------------------
-              JOB DONE!   
+              JOB DONE!
             - llm_model_name = {llm_model_name}
             - planning_llm_name = {planning_llm_name}
             -------------------
@@ -103,6 +112,12 @@ def main():
         print(f"[ERROR] Application error: {str(e)}")
         import traceback
         print(traceback.format_exc())
+        # Log the error to a file for better debugging
+        error_log_path = f"./log/error-{datetime.now().strftime('%Y-%m-%d_%H-%M-%S')}.log"
+        with open(error_log_path, "w") as error_file:
+            error_file.write(f"Error: {str(e)}\n\n")
+            error_file.write(traceback.format_exc())
+        print(f"Error details saved to {error_log_path}")
         return None
 
 if __name__ == "__main__":

@@ -18,3 +18,20 @@ mode = "sequential"
 [[workflows.workflow.tasks]]
 task = "shell.exec"
 args = "python main.py"
+
+[[workflows.workflow]]
+name = "Development Setup"
+author = 20939241
+mode = "sequential"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "pip install -r requirements.txt"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "cp .env.example .env"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "python start.py"
