@@ -2,7 +2,8 @@ from datetime import datetime
 import os
 from dotenv import load_dotenv
 
-# Load environment variables from .env file
+# Load environment variables from .env file - centralized here
+# This is the ONLY place where load_dotenv() should be called
 load_dotenv()
 
 # LLM parameters

@@ -1,0 +1,8 @@
+.env
+.vscode/PythonImportHelper-v2-Completion.json
+.qodo
+/.history
+.augmentignore
+/.snapshots
+/dev_notes
+/src/__pycache__

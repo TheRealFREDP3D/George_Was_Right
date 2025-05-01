@@ -1,7 +1,7 @@
 import os
 from rich import print
 from crewai import Agent, Task, Crew
-from dotenv import load_dotenv
+# Removed redundant load_dotenv import - environment variables are loaded in config.py
 from src.config import (
     log_researcher,
     log_writer,

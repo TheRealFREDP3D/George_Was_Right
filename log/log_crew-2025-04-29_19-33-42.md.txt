@@ -1,0 +1,5 @@
+2025-04-29 19:34:05: task_name="Researcher Task", task="Search for recent real world news that demonstrate how Orwell's book '1984' is still relevant today1. Begin by understanding the key themes of Orwell's '1984', such as surveillance, propaganda, censorship, thought control, and authoritarianism. This will help in identifying relevant news stories.
+2. Use the 'Search the internet with Serper' tool to search for recent news articles. Focus on search queries like 'modern surveillance news', 'government censorship 2023', 'propaganda in media recent events', 'authoritarian regimes 2023', or 'privacy violations recent news'.
+3. Set the search type to 'news' to ensure the results are recent and relevant.
+4. Review the top 2 results for each query and extract key details such as the event description, date, and how it aligns with the themes of '1984'.
+5. Compile a report summarizing the findings, ensuring each event is linked to a specific theme from the book. Include citations for the news sources.", agent="Researcher", status="started"

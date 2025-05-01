@@ -1,5 +1,5 @@
 import os
-from dotenv import load_dotenv
+# Removed redundant load_dotenv import - environment variables are loaded in config.py
 from crewai import LLM
 from src.config import (
     llm_model_name,
@@ -8,14 +8,14 @@ from src.config import (
     temperature_planning_llm,
 )
 
-load_dotenv()
+# Removed redundant load_dotenv() call
 
 class LLMFactory:
     @staticmethod
     def init_llm():
         return LLM(
-            model=llm_model_name, 
-            # base_url=os.getenv("OLLAMA_HOST", "http://localhost:11434"), 
+            model=llm_model_name,
+            # base_url=os.getenv("OLLAMA_HOST", "http://localhost:11434"),
             temperature=temperature_llm
         )
 
@@ -23,6 +23,6 @@ class LLMFactory:
     def init_planning_llm():
         return LLM(
             model=planning_llm_name,
-            # base_url=os.getenv("OLLAMA_HOST", "http://localhost:11434"), 
+            # base_url=os.getenv("OLLAMA_HOST", "http://localhost:11434"),
             temperature=temperature_planning_llm
         )

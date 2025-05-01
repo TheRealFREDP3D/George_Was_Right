@@ -1,29 +1,23 @@
-#!/usr/bin/env python
-
 import os
+
+from crewai import Crew
 from rich import print
-from crewai import Agent, Task, Crew
-from dotenv import load_dotenv
-from src.config import (
-    log_researcher,
-    log_writer,
-    log_prompt_master,
-    log_crew,
-    llm_model_name,
-    planning_llm_name,
-)
-from src.tools import search_tool
-from src.llm import LLMFactory
+
 from src.agents import (
+    PromptMasterAgent,
     ResearcherAgent,
     WriterAgent,
-    PromptMasterAgent,
     create_tasks,
 )
-import subprocess
+from src.config import (
+    llm_model_name,
+    log_crew,
+    planning_llm_name,
+)
+from src.llm import LLMFactory
+from src.tools import search_tool
 
-# Load environment variables
-load_dotenv()
+# Environment variables are loaded in config.py
 
 def create_crew():
     try:
@@ -33,10 +27,10 @@ def create_crew():
         tasks = create_tasks(researcher, writer, prompt_master)
         return Crew(
             agents=[researcher, writer, prompt_master],
-            tasks=tasks, 
-            verbose=True, 
+            tasks=tasks,
+            verbose=True,
             planning=True,
-            planning_llm=LLMFactory.init_planning_llm(), 
+            planning_llm=LLMFactory.init_planning_llm(),
             output_log_file=log_crew
         )
     except Exception as e:
@@ -49,13 +43,13 @@ def main():
         log_directory = os.path.dirname(log_crew)
         if not os.path.exists(log_directory):
             os.makedirs(log_directory)
-        
+
         print(
             f"""
             -------------------
-            LLM Models:  
+            LLM Models:
             - llm_model_name = {llm_model_name}
-            - planning_llm_name = {planning_llm_name}  
+            - planning_llm_name = {planning_llm_name}
             -------------------
             """
         )
@@ -66,7 +60,7 @@ def main():
         print(
             f"""
             -------------------
-              JOB DONE!   
+              JOB DONE!
             - llm_model_name = {llm_model_name}
             - planning_llm_name = {planning_llm_name}
             -------------------
