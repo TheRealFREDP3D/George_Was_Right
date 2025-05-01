@@ -8,8 +8,12 @@ load_dotenv()
 # LLM parameters
 llm_model_name = os.getenv('LLM_MODEL_NAME', 'ollama/Phi-3-mini-4k-instruct-q4:latest')
 planning_llm_name = os.getenv('PLANNING_LLM_MODEL_NAME', 'ollama/Phi-3-mini-4k-instruct-q4:latest')
+fallback_llm_name = os.getenv('FALLBACK_LLM_NAME', 'gpt-3.5-turbo')  # Add fallback model
 temperature_llm = float(os.getenv('TEMPERATURE_LLM', '0.7'))
 temperature_planning_llm = float(os.getenv('TEMPERATURE_PLANNING_LLM', '0.1'))
+
+# Flag to enable/disable fallback to OpenAI if local model fails
+use_fallback = os.getenv('USE_FALLBACK', 'True').lower() in ('true', '1', 't')
 
 # Search parameters
 search_country = os.getenv('SEARCH_COUNTRY', 'us')
