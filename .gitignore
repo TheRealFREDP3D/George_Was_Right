@@ -6,3 +6,5 @@
 /.snapshots
 /dev_notes
 /src/__pycache__
+appmap.log
+appmap.*
