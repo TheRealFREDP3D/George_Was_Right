@@ -11,6 +11,7 @@ from src.config import (
     log_crew,
     llm_model_name,
     planning_llm_name,
+    use_fallback,
 )
 from src.tools import search_tool
 from src.llm import LLMFactory
@@ -40,8 +41,16 @@ def create_crew():
             output_log_file=log_crew
         )
     except Exception as e:
-        print(f"Error creating crew: {str(e)}")
+        print(f"[ERROR] Failed to create crew: {str(e)}")
+        import traceback
+        print(traceback.format_exc())
         raise
+
+def cleanup():
+    """Cleanup resources properly when the application exits"""
+    print("Cleaning up resources...")
+    # Add cleanup code here if needed
+    # For example: close file handles, terminate processes, etc.
 
 def main():
     try:
@@ -82,7 +91,13 @@ def main():
         print(f"[ERROR] Connection failed: {str(e)}")
         print("Please check if your LLM service is running or if you need to use a different model.")
         if use_fallback:
-            print(f"The system attempted to use the fallback model but still encountered issues.")
+            try:
+                print(f"Attempting to use fallback model: {fallback_llm_name}")
+                # Here we could implement specific fallback logic if needed
+                # For example, temporarily modify config and re-create crew
+                print(f"Fallback mechanism activated. This feature needs implementation.")
+            except Exception as fallback_error:
+                print(f"[ERROR] Fallback attempt failed: {str(fallback_error)}")
         return None
     except Exception as e:
         print(f"[ERROR] Application error: {str(e)}")
@@ -91,4 +106,14 @@ def main():
         return None
 
 if __name__ == "__main__":
-    main()
+    try:
+        result = main()
+        if result is None:
+            print("Application completed with no result.")
+            exit(1)
+        exit(0)
+    except Exception as e:
+        print(f"Unhandled exception: {str(e)}")
+        exit(1)
+    finally:
+        cleanup()
