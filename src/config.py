@@ -1,3 +1,9 @@
+"""Configuration module for the George_Was_Right project.
+
+This module loads environment variables and defines configuration parameters
+for the project. It is the central place for all configuration settings.
+"""
+
 from datetime import datetime
 import os
 from dotenv import load_dotenv
@@ -18,6 +24,9 @@ use_fallback = os.getenv('USE_FALLBACK', 'True').lower() in ('true', '1', 't')
 
 # Search parameters
 search_country = os.getenv('SEARCH_COUNTRY', 'us')
+<<<<<<< HEAD
+search_n_results = int(os.getenv('SEARCH_N_RESULTS', '5'))
+=======
 
 # Validate configuration
 def validate_config():
@@ -49,13 +58,25 @@ if config_issues:
     print("Please fix these issues in your .env file.")
 
 search_n_results = int(os.getenv('SEARCH_N_RESULTS', 5))
+>>>>>>> 7250bbcd3257d20c5709e98c48bb63bfabf03032
 
 # A timestamp for the log files (filename-safe format)
 TIMESTAMP = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
 
+# Ensure log directory exists
+log_directory = "./log"
+os.makedirs(log_directory, exist_ok=True)
+
 # File paths for logs
+<<<<<<< HEAD
+log_researcher = f"{log_directory}/log_researcher-{TIMESTAMP}.md"
+log_writer = f"{log_directory}/log_writer-{TIMESTAMP}.md"
+log_prompt_master = f"{log_directory}/log_prompt_master-{TIMESTAMP}.md"
+log_crew = f"{log_directory}/log_crew-{TIMESTAMP}.md"
+=======
 log_researcher = f"./log/log_researcher-{TIMESTAMP}.md"
 log_writer = f"./log/log_writer-{TIMESTAMP}.md"
 log_prompt_master = f"./log/log_prompt_master-{TIMESTAMP}.md"
 log_editor = f"./log/log_editor-{TIMESTAMP}.md" #Added editor log file
 log_crew = f"./log/log_crew-{TIMESTAMP}.md"
+>>>>>>> 7250bbcd3257d20c5709e98c48bb63bfabf03032
