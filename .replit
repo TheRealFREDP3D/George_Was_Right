@@ -1,0 +1,37 @@
+modules = ["python-3.12", "bash"]
+run = "python main.py"
+
+[nix]
+channel = "stable-24_05"
+
+[deployment]
+run = ["sh", "-c", "python main.py"]
+
+[workflows]
+runButton = "Run Project"
+
+[[workflows.workflow]]
+name = "Run Project"
+author = 20939241
+mode = "sequential"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "python main.py"
+
+[[workflows.workflow]]
+name = "Development Setup"
+author = 20939241
+mode = "sequential"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "pip install -r requirements.txt"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "cp .env.example .env"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "python start.py"

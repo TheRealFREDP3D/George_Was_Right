@@ -102,6 +102,7 @@ class PromptMasterAgent(Agent):
         )
 
 
+<<<<<<< HEAD
 def create_tasks(researcher: Agent, writer: Agent, prompt_master: Agent) -> List[Task]:
     """
 Creates and returns a list of Task objects for the crew.
@@ -113,45 +114,29 @@ Args:
 
 Returns:
     List[Task]: A list of tasks for the crew.
+=======
+class EditorAgent(Agent):
+    """
+    Initializes an EditorAgent, responsible for reviewing and refining content.
+    
+    This agent is designed to review the content produced by the WriterAgent,
+    improving grammar, tone, cohesion, and overall quality.
+>>>>>>> 7250bbcd3257d20c5709e98c48bb63bfabf03032
 """
-    return [
-        Task(
-            name="Researcher Task",
-            description=(
-                "Search for recent real world news that demonstrate how Orwell's book "
-                "'1984' is still relevant today"
+    def __init__(self, **kwargs):
+        super().__init__(
+            role="Editor",
+            goal=("Review and refine content to ensure clarity, accuracy, and quality"),
+            backstory=(
+                "You are an experienced editor with an eye for detail and a deep "
+                "understanding of how to craft compelling narratives that connect "
+                "current events with literary themes."
             ),
-            agent=researcher,
-            expected_output=(
-                "A report containing recent events that are linked to the themes "
-                "described in Orwell's book, '1984'"
-            ),
-            output_file=log_researcher,
-        ),
-        Task(
-            name="Writer Task",
-            description=(
-                "Compare the news events with themes from '1984' and select the most "
-                "relevant match to write a small article on the subject."
-            ),
-            agent=writer,
-            expected_output=(
-                "A detailed comparison of a selected news event and a theme from "
-                "'1984'"
-            ),
-            output_file=log_writer,
-        ),
-        Task(
-            name="Prompt Master Task",
-            description=(
-                "Create two sets of prompts: one for an illustration for a recent "
-                "event and another one for a linked theme of the book '1984'."
-            ),
-            agent=prompt_master,
-            expected_output=(
-                "Two sets of prompts that will be used to generate illustrations: one "
-                "for the recent event and one for the '1984' related book theme."
-            ),
-            output_file=log_prompt_master,
-        ),
-    ]
+            allow_delegation=False,
+            verbose=True,
+            llm=LLMFactory.init_llm(),
+            **kwargs,
+        )
+
+
+# Tasks are now defined in src/tasks.py
