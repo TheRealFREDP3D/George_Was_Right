@@ -7,29 +7,38 @@
 # Github: https://github.com/TheRealFREDP3D/          #
 # Twitter/X: https://x.com/TheRealFredP3D/            #
 # --------------------------------------------------- #
-# Modified: <date>                                    #
+# Modified: 2025-04-27                                #
 # =================================================== #
 
+"""Environment variables manager and launcher for the George_Was_Right project.
+
+This script provides a text-based user interface for managing environment variables
+and launching the main application.
+"""
+
 import os
-import rich
+import time
 from rich.console import Console
 from rich.table import Table
-from rich.console import JustifyMethod
 
 # Initialize Rich Console for pretty printing
 console = Console()
 
 
-# Function to clear the screen
 def clear_screen():
+    """Clear the terminal screen based on the operating system."""
     os.system("cls" if os.name == "nt" else "clear")
 
 
-# Function to load .env file content
 def load_env_file():
+    """Load environment variables from .env or .env.example file.
+
+    Returns:
+        list: List of valid environment variable entries.
+    """
     # List of characters that indicate a line should be skipped if it starts with them
     skip_characters = [" ", "#", "\n", "\t"]
-    
+
     try:
         # Determine which env file to use - prefer .env, fall back to .env.example
         env_file = ".env" if os.path.exists(".env") else ".env.example"
@@ -46,30 +55,34 @@ def load_env_file():
                 # Skip empty lines
                 if not line.strip():
                     continue
-                    
+
                 # Skip lines that start with any character from skip_characters
                 if any(line.startswith(char) for char in skip_characters):
                     continue
-                    
+
                 # If we get here, the line is valid - add it to our list
                 valid_lines.append(line.strip())
-                
+
             return valid_lines
-            
+
     except Exception as e:
         console.print(f"[bold red]Error loading {env_file} file: {e}[/bold red]")
         return []
 
 
-# Function to save .env file content
 def save_env_file(lines):
+    """Save environment variables to .env file with backup.
+
+    Args:
+        lines (list): List of environment variable entries to save.
+    """
     try:
         # First, let's create a backup of the existing .env file if it exists
         if os.path.exists(".env"):
             # Read the current contents of .env before we overwrite it
             with open(".env", "r") as current_file:
                 current_contents = current_file.read()
-            
+
             # Save the current contents to .env.bak
             with open(".env.bak", "w") as backup_file:
                 backup_file.write(current_contents)
@@ -78,25 +91,29 @@ def save_env_file(lines):
         with open(".env", "w") as file:
             for line in lines:
                 file.write(line + "\n")
-                
+
         # If we get here, everything worked successfully
         console.print("[bold green]Environment file saved successfully with backup.[/bold green]")
-        
+
     except PermissionError:
         console.print("[bold red]Error: No permission to write to .env or .env.bak file[/bold red]")
     except IOError as e:
         console.print(f"[bold red]Error: Failed to write to environment files: {e}[/bold red]")
 
 
-# Function to show user feedback
 def show_feedback(message):
+    """Display a feedback message to the user.
+
+    Args:
+        message (str): The message to display.
+    """
     console.print(f"[bold green]{message}[/bold green]")
 
 
-# Main function to create and run the TUI
 def main():
+    """Main function to create and run the text-based user interface."""
     env_lines = load_env_file()
-    show_message = None  # Add a variable to store feedback messages
+    show_message = None  # Variable to store feedback messages
 
     while True:
         clear_screen()

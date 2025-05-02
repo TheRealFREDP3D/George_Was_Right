@@ -38,24 +38,6 @@ This project aims to provide a nuanced examination of how contemporary society r
 
 ![Generated with DALL-E and a prompt from the Illustrator Agent](images/Header.png)
 
-## Features and Roadmap
-
-### Current Features
-
-- **Automated Research and Analysis:** Gathers and analyzes news stories in relation to *1984* themes.
-- **Multi-Agent Collaboration:** Uses specialized AI agents (Researcher, Writer, Prompt Master) to divide and conquer complex tasks.
-- **Visual Prompt Generation:** Produces creative prompts for illustrations to enhance storytelling and audience engagement.
-- **Clear and Structured Output:** Outputs organized markdown reports combining research, analysis, and visuals.
-- **Environment Variable Validation:** Validates required environment variables and provides error handling.
-- **Improved Code Structure:** Enhanced code organization and readability.
-
-### Upcoming Enhancements
-
-- **Customizable Search Parameters:** Add options for users to specify country and the number of search results for focused research.
-- **GUI Integration:** Develop a user-friendly graphical interface for seamless control of the analysis process.
-- **Refined Output Formats:** Improve markdown and PDF exports for clarity and usability.
-- **Incremental Feature Rollout:** Continuously implement new features while maintaining backward compatibility.
-
 ## Showcase
 
 ### Showcase-1
@@ -156,19 +138,19 @@ Follow these steps to set up the project:
    pip install -r requirements.txt
    ```
 
-6. Get an API key for free from Github and add it to your .env file.  
+6. Get an API key for free from Github and add it to your .env file.
    - Go to the Marketplace and search for "Github API" and click on the "Get it free" button.
    - Add the API key to your .env file.
 
-```bash
-GITHUB_API_KEY=your_github_api_key
-```
+   ```bash
+   GITHUB_API_KEY=your_github_api_key
+   ```
 
 7. Get an API key for free from SerperDev and add it to your .env file.
 
-```sh
-SERPER_API_KEY=your_serper_api_key
-```
+   ```bash
+   SERPER_API_KEY=your_serper_api_key
+   ```
 
 8. Run the project:
 
@@ -193,7 +175,7 @@ It's possible to use other LLM models, but you will need to change the model in 
 
 Please, be aware that the LLM models have different capabilities and limitations.
 
-Feel free to use the code as you see fit. I'm not a professional programmer, so I'm sure there are many improvements that can be made...  
+Feel free to use the code as you see fit. I'm not a professional programmer, so I'm sure there are many improvements that can be made...
 
 If you have any questions or suggestions, please feel free to contact me or open an issue.
 And I'm curious and really interested to know what you think about this project and if you have any ideas for improvements.
@@ -248,4 +230,4 @@ Please ensure changes are well-tested and documented. Refer to the [Contribution
 
 ![Generated with DALL-E and a prompt from the Illustrator Agent](images/big-brother-is-watching.jpg)
 
-**Modified:** January 5, 2025
+**Modified:** April 27, 2025

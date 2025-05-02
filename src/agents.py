@@ -1,17 +1,20 @@
-import os
-from rich import print
-from crewai import Agent, Task, Crew
-# Removed redundant load_dotenv import - environment variables are loaded in config.py
+"""Agents module for the George_Was_Right project.
+
+This module defines the agents used in the project and their tasks.
+Each agent has a specific role, goal, and backstory.
+"""
+
+from typing import List
+
+from crewai import Agent, Task
+
 from src.config import (
     log_researcher,
     log_writer,
     log_prompt_master,
-    log_crew,
-    llm_model_name,
-    planning_llm_name,
 )
-from src.tools import search_tool
 from src.llm import LLMFactory
+from src.tools import search_tool
 
 class ResearcherAgent(Agent):
     """
@@ -99,12 +102,17 @@ class PromptMasterAgent(Agent):
         )
 
 
-def create_tasks(researcher, writer, prompt_master):
+def create_tasks(researcher: Agent, writer: Agent, prompt_master: Agent) -> List[Task]:
     """
 Creates and returns a list of Task objects for the crew.
 
-Each task is assigned to a specific agent and includes a description,
-expected output, and an output file for logging.
+Args:
+    researcher: The researcher agent.
+    writer: The writer agent.
+    prompt_master: The prompt master agent.
+
+Returns:
+    List[Task]: A list of tasks for the crew.
 """
     return [
         Task(

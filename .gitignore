@@ -8,3 +8,7 @@
 /src/__pycache__
 appmap.log
 appmap.*
+/.pytest_cache
+/.venv
+/.vscode
+/gwr
