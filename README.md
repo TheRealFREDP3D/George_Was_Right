@@ -1,13 +1,21 @@
 # George-Was-Right v0.6 - README.md
 
-![Generated with DALL-E and a prompt from the Illustrator Agent](images/Header.png)
+![Generated with DALL-E and a prompt from the Prompt Master Agent](images/Header.png)
 
-George_Was_Right leverages a team of AI agents, powered by CrewAI, to analyze recent world events through the lens of themes from George Orwell's *1984*. It orchestrates four specialized agents—Researcher, Writer, Illustrator, and Editor—to perform tasks such as:
+George_Was_Right leverages a team of AI agents, powered by CrewAI, to analyze recent world events through the lens of themes from George Orwell's *1984*. It orchestrates four specialized agents—Researcher, Writer, Prompt Master, and Editor—to perform tasks such as:
 
-- Searching for relevant news.
-- Comparing news with themes from *1984*.
-- Writing articles.
-- Generating illustration prompts to accompany analyses.
+- **ResearcherAgent**: 
+    - Role: "Expert Researcher in Political and Societal Developments"
+    - Goal: "Investigate significant global political or societal developments that reflect similarities or parallels found within Orwell's '1984', focusing on surveillance practices or control over information narratives by governing bodies or powerful entities."
+- **WriterAgent**:
+    - Role: "Comparative Analyst and Writer"
+    - Goal: "Synthesize researched occurrences into comprehensive comparative analyses between modern-day developments and thematic elements from Orwell's '1984', highlighting why contemporary incidents mirror '1984' scenarios."
+- **PromptMasterAgent**:
+    - Role: "Visual Concept Creator for Socio-Political Commentary"
+    - Goal: "Generate visually compelling representations (infographics or artwork) based on the comparative analyses from the Researcher and Writer Agents, visually communicating connections between '1984' themes and modern occurrences."
+- **EditorAgent**:
+    - Role: "Guardian of Clarity and Thematic Cohesion"
+    - Goal: "Ensure all generated content (analyses, articles, and visual prompt descriptions) is clear, grammatically impeccable, thematically coherent with Orwellian concepts, and maintains a consistent tone and high quality suitable for publication."
 
 This project aims to provide a nuanced examination of how contemporary society reflects Orwellian concerns about digital privacy and freedom, fostering meaningful discussion and awareness.
 
@@ -22,7 +30,7 @@ This project aims to provide a nuanced examination of how contemporary society r
 ### Current Features
 
 - **Automated Research and Analysis:** Gathers and analyzes news stories in relation to *1984* themes.
-- **Multi-Agent Collaboration:** Uses specialized AI agents (Researcher, Writer, Prompt Master) to divide and conquer complex tasks.
+- **Multi-Agent Collaboration:** Uses specialized AI agents (Researcher, Writer, Prompt Master, Editor) to divide and conquer complex tasks.
 - **Visual Prompt Generation:** Produces creative prompts for illustrations to enhance storytelling and audience engagement.
 - **Clear and Structured Output:** Outputs organized markdown reports combining research, analysis, and visuals.
 - **Environment Variable Validation:** Validates required environment variables and provides error handling.

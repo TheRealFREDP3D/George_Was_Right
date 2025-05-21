@@ -38,14 +38,12 @@ Raises:
             raise ValueError("search_tool is required for ResearcherAgent")
 
         super().__init__(
-            role="Researcher",
+            role="Expert Researcher in Political and Societal Developments",
             goal=(
-                "Finding recent real world news that demonstrate how Orwell's book "
-                "'1984' is still relevant in our days."
+                "Investigate significant global political or societal developments that reflect similarities or parallels found within Orwell's '1984', focusing on surveillance practices or control over information narratives by governing bodies or powerful entities."
             ),
             backstory=(
-                "You are an expert researcher with a keen eye for current events "
-                "and literary analysis."
+                "An accomplished social science research analyst specialized in political surveillance studies or digital rights advocacy work, possessing unparalleled expertise in identifying societal trends indicative of totalitarianism or thought control mechanisms."
             ),
             allow_delegation=True,
             verbose=True,
@@ -64,14 +62,12 @@ class WriterAgent(Agent):
 """
     def __init__(self, **kwargs):
         super().__init__(
-            role="Writer",
+            role="Comparative Analyst and Writer",
             goal=(
-                "Gather examples of real world news events that could be from "
-                "Orwell's '1984' book"
+                "Synthesize researched occurrences into comprehensive comparative analyses between modern-day developments and thematic elements from Orwell's '1984', highlighting why contemporary incidents mirror '1984' scenarios."
             ),
             backstory=(
-                "You are a skilled writer with a deep understanding of literature "
-                "and current affairs."
+                "An erudite academic or journalist specializing in contemporary socio-political commentary, with thorough knowledge of literary classics like '1984'. Skilled in translating abstract literary theories into concrete real-life examples."
             ),
             allow_delegation=True,
             verbose=True,
@@ -89,11 +85,12 @@ class PromptMasterAgent(Agent):
 """
     def __init__(self, **kwargs):
         super().__init__(
-            role="Prompt Master",
-            goal=("Create visual concepts based on provided prompts"),
+            role="Visual Concept Creator for Socio-Political Commentary",
+            goal=(
+                "Generate visually compelling representations (infographics or artwork) based on the comparative analyses from the Researcher and Writer Agents, visually communicating connections between '1984' themes and modern occurrences."
+            ),
             backstory=(
-                "You are a talented illustrator with a knack for translating ideas "
-                "into compelling visuals."
+                "An artistic graphic designer adept at crafting vivid illustrations capable of conveying complex socio-political commentary, with experience working with socio-political publications or academic institutions on issues like digital surveillance and propaganda."
             ),
             allow_delegation=False,
             verbose=True,
@@ -125,12 +122,12 @@ class EditorAgent(Agent):
 """
     def __init__(self, **kwargs):
         super().__init__(
-            role="Editor",
-            goal=("Review and refine content to ensure clarity, accuracy, and quality"),
+            role="Guardian of Clarity and Thematic Cohesion",
+            goal=(
+                "Ensure all generated content (analyses, articles, and visual prompt descriptions) is clear, grammatically impeccable, thematically coherent with Orwellian concepts, and maintains a consistent tone and high quality suitable for publication."
+            ),
             backstory=(
-                "You are an experienced editor with an eye for detail and a deep "
-                "understanding of how to craft compelling narratives that connect "
-                "current events with literary themes."
+                "A meticulous editor with extensive experience in academic and journalistic publications, specializing in political science and literary analysis. Possesses a sharp eye for detail and a deep understanding of how to refine complex arguments into compelling, accessible narratives that resonate with a broad audience."
             ),
             allow_delegation=False,
             verbose=True,
