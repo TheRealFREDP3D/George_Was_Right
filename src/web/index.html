@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CrewAI Interface</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>CrewAI Interface</h1>
+        </header>
+        <main>
+            <aside class="settings">
+                <h2>Settings</h2>
+                <div class="setting-section">
+                    <h3>Search Tool</h3>
+                    <label for="search-tool">Select Search Tool:</label>
+                    <select id="search-tool" name="search-tool">
+                        <option value="duckduckgo">DuckDuckGo</option>
+                        <option value="google">Google</option>
+                        <option value="bing">Bing</option>
+                        <!-- Add more options as needed -->
+                    </select>
+                </div>
+                <div class="setting-section">
+                    <h3>LLM Model</h3>
+                    <label for="llm-provider">Select Provider:</label>
+                    <select id="llm-provider" name="llm-provider">
+                        <option value="openai">OpenAI</option>
+                        <option value="anthropic">Anthropic</option>
+                        <option value="google-gemini">Google Gemini</option>
+                        <!-- Add more options as needed -->
+                    </select>
+                    <label for="llm-model">Select Model:</label>
+                    <select id="llm-model" name="llm-model">
+                        <!-- Options will be populated by JavaScript -->
+                    </select>
+                    <label for="api-key">API Key:</label>
+                    <input type="password" id="api-key" name="api-key">
+                </div>
+                <button id="run-crew">Run Crew</button>
+            </aside>
+            <section class="logs">
+                <h2>Logs</h2>
+                <div class="log-tabs">
+                    <button class="tab-button active" data-log="agent-actions">Agent Actions</button>
+                    <button class="tab-button" data-log="tool-usage">Tool Usage</button>
+                </div>
+                <div id="agent-actions-log" class="log-content active">
+                    <pre><!-- Agent actions will appear here --></pre>
+                </div>
+                <div id="tool-usage-log" class="log-content">
+                    <pre><!-- Tool usage logs will appear here --></pre>
+                </div>
+            </section>
+            <section class="output">
+                <h2>Final Output</h2>
+                <div id="final-output">
+                    <!-- Rendered Markdown will appear here -->
+                </div>
+            </section>
+        </main>
+        <footer>
+            <p>&copy; 2024 Your Company</p>
+        </footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

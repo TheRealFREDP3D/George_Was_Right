@@ -1,0 +1,284 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: #0A192F; /* Dark Blue */
+    color: #F5F5F5; /* Ivory */
+    line-height: 1.6;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+.container {
+    width: 90%;
+    max-width: 1400px;
+    background-color: #172A45; /* Slightly lighter Dark Blue for container */
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+}
+
+header {
+    background-color: #B87333; /* Copper */
+    color: #0A192F; /* Dark Blue */
+    padding: 1.5rem;
+    text-align: center;
+    border-bottom: 3px solid #0A192F;
+}
+
+header h1 {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+main {
+    display: grid;
+    grid-template-columns: 300px 1fr; /* Sidebar for settings, main area for logs and output */
+    grid-template-rows: auto 1fr; /* Logs take available space */
+    gap: 20px;
+    padding: 20px;
+    min-height: calc(100vh - 150px); /* Adjust based on header/footer height */
+}
+
+.settings {
+    grid-column: 1 / 2;
+    grid-row: 1 / 3; /* Span both rows */
+    background-color: #0A192F; /* Dark Blue */
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #B87333; /* Copper accent */
+}
+
+.settings h2, .logs h2, .output h2 {
+    color: #B87333; /* Copper */
+    margin-bottom: 15px;
+    border-bottom: 1px solid #F5F5F5; /* Ivory */
+    padding-bottom: 10px;
+}
+
+.setting-section {
+    margin-bottom: 20px;
+}
+
+.setting-section h3 {
+    color: #F5F5F5; /* Ivory */
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+}
+
+.settings label {
+    display: block;
+    margin-bottom: 5px;
+    color: #F5F5F5; /* Ivory */
+    font-size: 0.9rem;
+}
+
+.settings select,
+.settings input[type="password"],
+.settings input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    border: 1px solid #B87333; /* Copper */
+    background-color: #172A45; /* Slightly lighter Dark Blue */
+    color: #F5F5F5; /* Ivory */
+    font-size: 0.9rem;
+}
+
+.settings select:focus,
+.settings input[type="password"]:focus,
+.settings input[type="text"]:focus {
+    outline: none;
+    border-color: #F5F5F5; /* Ivory on focus */
+    box-shadow: 0 0 5px #B87333; /* Copper glow */
+}
+
+.settings button#run-crew {
+    background-color: #B87333; /* Copper */
+    color: #0A192F; /* Dark Blue */
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    width: 100%;
+    transition: background-color 0.3s ease;
+}
+
+.settings button#run-crew:hover {
+    background-color: #c9844b; /* Lighter Copper */
+}
+
+.logs {
+    grid-column: 2 / 3;
+    grid-row: 1 / 2; /* First row in the main area */
+    background-color: #0A192F; /* Dark Blue */
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #B87333; /* Copper accent */
+    display: flex;
+    flex-direction: column;
+}
+
+.log-tabs {
+    display: flex;
+    margin-bottom: 15px;
+}
+
+.log-tabs .tab-button {
+    background-color: #172A45; /* Slightly lighter Dark Blue */
+    color: #F5F5F5; /* Ivory */
+    border: 1px solid #B87333; /* Copper */
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 4px 4px 0 0;
+    margin-right: 5px;
+    font-size: 0.9rem;
+}
+
+.log-tabs .tab-button.active {
+    background-color: #B87333; /* Copper */
+    color: #0A192F; /* Dark Blue */
+    border-bottom: 1px solid #B87333;
+}
+
+.log-content {
+    display: none;
+    background-color: #172A45; /* Slightly lighter Dark Blue */
+    padding: 15px;
+    border-radius: 0 4px 4px 4px;
+    flex-grow: 1; /* Take available space */
+    overflow-y: auto; /* Scroll for long logs */
+    border: 1px solid #B87333; /* Copper accent, matching tabs */
+    border-top: none;
+}
+
+.log-content.active {
+    display: block;
+}
+
+.log-content pre {
+    white-space: pre-wrap; /* Wrap long lines */
+    word-wrap: break-word; /* Break words if necessary */
+    color: #F5F5F5; /* Ivory */
+    font-size: 0.85rem;
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+}
+
+
+.output {
+    grid-column: 2 / 3;
+    grid-row: 2 / 3; /* Second row in the main area */
+    background-color: #0A192F; /* Dark Blue */
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #B87333; /* Copper accent */
+    overflow-y: auto; /* Scroll for long output */
+}
+
+#final-output {
+    background-color: #172A45; /* Slightly lighter Dark Blue */
+    padding: 15px;
+    border-radius: 4px;
+    min-height: 200px; /* Minimum height for the output area */
+    border: 1px solid #B87333; /* Copper accent */
+}
+
+/* Markdown specific styling */
+#final-output h1, #final-output h2, #final-output h3, #final-output h4, #final-output h5, #final-output h6 {
+    color: #B87333; /* Copper for headers */
+    margin-top: 1em;
+    margin-bottom: 0.5em;
+}
+#final-output p {
+    margin-bottom: 0.8em;
+    color: #F5F5F5; /* Ivory */
+}
+#final-output ul, #final-output ol {
+    margin-left: 20px;
+    margin-bottom: 0.8em;
+    color: #F5F5F5; /* Ivory */
+}
+#final-output li {
+    margin-bottom: 0.4em;
+}
+#final-output code {
+    background-color: #0A192F; /* Dark Blue */
+    color: #B87333; /* Copper */
+    padding: 0.2em 0.4em;
+    border-radius: 3px;
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+}
+#final-output pre {
+    background-color: #0A192F; /* Dark Blue */
+    padding: 10px;
+    border-radius: 4px;
+    overflow-x: auto; /* Scroll for wide code blocks */
+    border: 1px solid #B87333; /* Copper accent */
+}
+#final-output pre code {
+    background-color: transparent;
+    padding: 0;
+    border: none;
+}
+#final-output blockquote {
+    border-left: 3px solid #B87333; /* Copper */
+    padding-left: 10px;
+    margin-left: 0;
+    color: #cccccc; /* Lighter Ivory for quotes */
+}
+#final-output table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1em;
+}
+#final-output th, #final-output td {
+    border: 1px solid #B87333; /* Copper */
+    padding: 8px;
+    text-align: left;
+}
+#final-output th {
+    background-color: #172A45; /* Slightly lighter Dark Blue for table headers */
+    color: #B87333; /* Copper */
+}
+
+footer {
+    background-color: #0A192F; /* Dark Blue */
+    color: #B87333; /* Copper */
+    text-align: center;
+    padding: 1rem;
+    border-top: 1px solid #B87333; /* Copper accent */
+    font-size: 0.9rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    main {
+        grid-template-columns: 1fr; /* Stack sections on smaller screens */
+        grid-template-rows: auto auto auto; /* Adjust rows accordingly */
+    }
+    .settings {
+        grid-column: 1 / 2;
+        grid-row: 1 / 2;
+    }
+    .logs {
+        grid-column: 1 / 2;
+        grid-row: 2 / 3;
+        max-height: 400px; /* Limit height of logs on mobile */
+    }
+    .output {
+        grid-column: 1 / 2;
+        grid-row: 3 / 4;
+    }
+    header h1 {
+        font-size: 1.5rem;
+    }
+}
