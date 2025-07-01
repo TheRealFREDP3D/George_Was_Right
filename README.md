@@ -4,18 +4,18 @@
 
 George_Was_Right leverages a team of AI agents, powered by CrewAI, to analyze recent world events through the lens of themes from George Orwell's *1984*. It orchestrates four specialized agents—Researcher, Writer, Prompt Master, and Editor—to perform tasks such as:
 
-- **ResearcherAgent**: 
-    - Role: "Expert Researcher in Political and Societal Developments"
-    - Goal: "Investigate significant global political or societal developments that reflect similarities or parallels found within Orwell's '1984', focusing on surveillance practices or control over information narratives by governing bodies or powerful entities."
+- **ResearcherAgent**:
+  - Role: "Expert Researcher in Political and Societal Developments"
+  - Goal: "Investigate significant global political or societal developments that reflect similarities or parallels found within Orwell's '1984', focusing on surveillance practices or control over information narratives by governing bodies or powerful entities."
 - **WriterAgent**:
-    - Role: "Comparative Analyst and Writer"
-    - Goal: "Synthesize researched occurrences into comprehensive comparative analyses between modern-day developments and thematic elements from Orwell's '1984', highlighting why contemporary incidents mirror '1984' scenarios."
+  - Role: "Comparative Analyst and Writer"
+  - Goal: "Synthesize researched occurrences into comprehensive comparative analyses between modern-day developments and thematic elements from Orwell's '1984', highlighting why contemporary incidents mirror '1984' scenarios."
 - **PromptMasterAgent**:
-    - Role: "Visual Concept Creator for Socio-Political Commentary"
-    - Goal: "Generate visually compelling representations (infographics or artwork) based on the comparative analyses from the Researcher and Writer Agents, visually communicating connections between '1984' themes and modern occurrences."
+  - Role: "Visual Concept Creator for Socio-Political Commentary"
+  - Goal: "Generate visually compelling representations (infographics or artwork) based on the comparative analyses from the Researcher and Writer Agents, visually communicating connections between '1984' themes and modern occurrences."
 - **EditorAgent**:
-    - Role: "Guardian of Clarity and Thematic Cohesion"
-    - Goal: "Ensure all generated content (analyses, articles, and visual prompt descriptions) is clear, grammatically impeccable, thematically coherent with Orwellian concepts, and maintains a consistent tone and high quality suitable for publication."
+  - Role: "Guardian of Clarity and Thematic Cohesion"
+  - Goal: "Ensure all generated content (analyses, articles, and visual prompt descriptions) is clear, grammatically impeccable, thematically coherent with Orwellian concepts, and maintains a consistent tone and high quality suitable for publication."
 
 This project aims to provide a nuanced examination of how contemporary society reflects Orwellian concerns about digital privacy and freedom, fostering meaningful discussion and awareness.
 
@@ -77,11 +77,11 @@ This project aims to provide a nuanced examination of how contemporary society r
 
 ## Project History
 
-George-Was-Right is a project I’ve been working on to learn Python. I needed  way to get hands-on with programming and not just read about it.
+George-Was-Right is a project I've been working on to learn Python. I needed  way to get hands-on with programming and not just read about it.
 
-Like a lot of people during the pandemic, I was stuck at home with too much time on my hands. That’s when I decided to finally dive back into coding. I had just finished reading '1984' and taught, “Why not make something in George Orwell’s world?” My first idea was to make a small game. I wasn't really serious about this project until I discovered LLMs, Ollama and CrewAI. My project idea took a hard left turn. It was definitely a stretch for my skills at the time, but I love a good challenge. It forced me to read, learn, and experiment. Plus, who doesn’t like an excuse to Google stuff?
+Like a lot of people during the pandemic, I was stuck at home with too much time on my hands. That's when I decided to finally dive back into coding. I had just finished reading '1984' and taught, "Why not make something in George Orwell's world?" My first idea was to make a small game. I wasn't really serious about this project until I discovered LLMs, Ollama and CrewAI. My project idea took a hard left turn. It was definitely a stretch for my skills at the time, but I love a good challenge. It forced me to read, learn, and experiment. Plus, who doesn't like an excuse to Google stuff?
 
-What started as a “just for fun” hobby has turned into something more. I’m working on it in my spare time because, as much as I find it’s fun and satisfying, it doesn't pay the bills.
+What started as a "just for fun" hobby has turned into something more. I'm working on it in my spare time because, as much as I find it's fun and satisfying, it doesn't pay the bills.
 
 ---
 
@@ -239,3 +239,11 @@ Please ensure changes are well-tested and documented. Refer to the [Contribution
 ![Generated with DALL-E and a prompt from the Illustrator Agent](images/big-brother-is-watching.jpg)
 
 **Modified:** April 27, 2025
+
+## Front-End Improvements (v0.6+)
+
+- **Markdown Rendering:** Now uses [Marked.js](https://marked.js.org/) for robust and safe Markdown parsing. This replaces the previous regex-based approach, ensuring correct rendering and improved security.
+- **Run Crew Button:** The 'Run Crew' button is now disabled during execution to prevent duplicate/overlapping runs. It is re-enabled after the mock run completes.
+- **CSS Theming:** All major color tokens (Dark Blue, Ivory, Copper) are now managed via CSS custom properties (variables) in `style.css`. This makes it easier to update the theme or maintain color consistency.
+- **API Key Security:** The API key input field has `autocomplete="off"` to prevent browsers from storing or autofilling sensitive data.
+- **Security:** Markdown rendering is now handled by Marked.js, which helps mitigate XSS risks by avoiding unsafe direct HTML injection from user input.
