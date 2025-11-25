@@ -11,10 +11,18 @@ from dotenv import load_dotenv
 # Load environment variables from .env file - centralized here
 # This is the ONLY place where load_dotenv() should be called
 load_dotenv()
+print(f"DEBUG: LLM_MODEL_NAME from env: {os.getenv('LLM_MODEL_NAME')}")
 
 # LLM parameters
-llm_model_name = os.getenv('LLM_MODEL_NAME', 'ollama/Phi-3-mini-4k-instruct-q4:latest')
-planning_llm_name = os.getenv('PLANNING_LLM_MODEL_NAME', 'ollama/Phi-3-mini-4k-instruct-q4:latest')
+# Prioritize environment variables, but keep defaults as fallback
+llm_model_name = os.getenv('LLM_MODEL_NAME')
+if not llm_model_name:
+    llm_model_name = 'ollama/Phi-3-mini-4k-instruct-q4:latest'
+
+planning_llm_name = os.getenv('PLANNING_LLM_MODEL_NAME')
+if not planning_llm_name:
+    planning_llm_name = 'ollama/Phi-3-mini-4k-instruct-q4:latest'
+
 fallback_llm_name = os.getenv('FALLBACK_LLM_NAME', 'gpt-3.5-turbo')  # Add fallback model
 temperature_llm = float(os.getenv('TEMPERATURE_LLM', '0.7'))
 temperature_planning_llm = float(os.getenv('TEMPERATURE_PLANNING_LLM', '0.1'))
@@ -24,9 +32,8 @@ use_fallback = os.getenv('USE_FALLBACK', 'True').lower() in ('true', '1', 't')
 
 # Search parameters
 search_country = os.getenv('SEARCH_COUNTRY', 'us')
-<<<<<<< HEAD
 search_n_results = int(os.getenv('SEARCH_N_RESULTS', '5'))
-=======
+search_topic = os.getenv('SEARCH_TOPIC', "Search for recent real world news that demonstrate how Orwell's book '1984' is still relevant today")
 
 # Validate configuration
 def validate_config():
@@ -57,8 +64,6 @@ if config_issues:
         print(f" - {issue}")
     print("Please fix these issues in your .env file.")
 
-search_n_results = int(os.getenv('SEARCH_N_RESULTS', 5))
->>>>>>> 7250bbcd3257d20c5709e98c48bb63bfabf03032
 
 # A timestamp for the log files (filename-safe format)
 TIMESTAMP = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
@@ -68,15 +73,8 @@ log_directory = "./log"
 os.makedirs(log_directory, exist_ok=True)
 
 # File paths for logs
-<<<<<<< HEAD
 log_researcher = f"{log_directory}/log_researcher-{TIMESTAMP}.md"
 log_writer = f"{log_directory}/log_writer-{TIMESTAMP}.md"
 log_prompt_master = f"{log_directory}/log_prompt_master-{TIMESTAMP}.md"
+log_editor = f"{log_directory}/log_editor-{TIMESTAMP}.md" #Added editor log file
 log_crew = f"{log_directory}/log_crew-{TIMESTAMP}.md"
-=======
-log_researcher = f"./log/log_researcher-{TIMESTAMP}.md"
-log_writer = f"./log/log_writer-{TIMESTAMP}.md"
-log_prompt_master = f"./log/log_prompt_master-{TIMESTAMP}.md"
-log_editor = f"./log/log_editor-{TIMESTAMP}.md" #Added editor log file
-log_crew = f"./log/log_crew-{TIMESTAMP}.md"
->>>>>>> 7250bbcd3257d20c5709e98c48bb63bfabf03032

@@ -10,16 +10,14 @@ from src.config import (
     log_researcher,
     log_writer,
     log_prompt_master,
+    search_topic,
 )
 
 def create_research_task(researcher_agent):
     """Create a research task for the Researcher agent."""
     return Task(
         name="Researcher Task",
-        description=(
-            "Search for recent real world news that demonstrate how Orwell's book "
-            "'1984' is still relevant today"
-        ),
+        description=search_topic,
         agent=researcher_agent,
         expected_output=(
             "A report containing recent events that are linked to the themes "

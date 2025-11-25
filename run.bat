@@ -1,3 +1,0 @@
-@echo off
-echo Using GWR Python environment...
-.\gwr\python.exe %*

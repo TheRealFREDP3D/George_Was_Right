@@ -99,27 +99,13 @@ class PromptMasterAgent(Agent):
         )
 
 
-<<<<<<< HEAD
-def create_tasks(researcher: Agent, writer: Agent, prompt_master: Agent) -> List[Task]:
-    """
-Creates and returns a list of Task objects for the crew.
-
-Args:
-    researcher: The researcher agent.
-    writer: The writer agent.
-    prompt_master: The prompt master agent.
-
-Returns:
-    List[Task]: A list of tasks for the crew.
-=======
 class EditorAgent(Agent):
     """
     Initializes an EditorAgent, responsible for reviewing and refining content.
     
     This agent is designed to review the content produced by the WriterAgent,
     improving grammar, tone, cohesion, and overall quality.
->>>>>>> 7250bbcd3257d20c5709e98c48bb63bfabf03032
-"""
+    """
     def __init__(self, **kwargs):
         super().__init__(
             role="Guardian of Clarity and Thematic Cohesion",
@@ -134,6 +120,3 @@ class EditorAgent(Agent):
             llm=LLMFactory.init_llm(),
             **kwargs,
         )
-
-
-# Tasks are now defined in src/tasks.py
