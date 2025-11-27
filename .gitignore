@@ -12,5 +12,4 @@ appmap.*
 /.venv
 /.vscode
 /gwr
-/log
 /llm_models
