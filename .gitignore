@@ -11,6 +11,3 @@ appmap.*
 /.pytest_cache
 /.venv
 /.vscode
-/gwr
-/log
-/llm_models
