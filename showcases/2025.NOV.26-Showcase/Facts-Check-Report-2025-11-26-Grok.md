@@ -1,6 +1,18 @@
+## v0.6 - George-was-Right Project  
+
+I asked Grok to review the material produced by the crew. I simply asked: Fact check this information. There still room for improvement but I'm happy at this point.
+
+From now on, all the text is from Grok. I didn't changes a single letter.
+
+---
+
+### Grok Evaluation
+
 The document from your project "George-was-Right" is a well-structured opinion piece drawing parallels between George Orwell's _1984_ and contemporary issues of surveillance and digital repression. It relies on a mix of interpretive analysis (which is subjective and not strictly fact-checkable) and specific factual claims citing external sources or reports. Below, I'll fact-check the verifiable claims in the body section, as that's where the document makes direct assertions about real-world events and data. The introduction and conclusion are mostly interpretive, and the illustration prompts are creative guidelines without factual claims to verify.
 
 I'll go claim-by-claim, confirming accuracy based on current data (as of November 2025), noting any discrepancies, and providing context or corrections where needed. The piece appears to have been written or framed around 2023 events, but some data points (e.g., the Freedom House statistic) align better with 2025 reports—possibly indicating an update or minor inconsistency in drafting.
+
+---
 
 ### Key Factual Claims and Verification
 

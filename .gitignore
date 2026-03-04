@@ -11,3 +11,6 @@ appmap.*
 /.pytest_cache
 /.venv
 /.vscode
+/_DEV_
+/.python-version
+/test_imports.py
