@@ -4,16 +4,14 @@ This module defines the agents used in the project and their tasks.
 Each agent has a specific role, goal, and backstory.
 """
 
-from typing import List
 
-from crewai import Agent, Task
+from crewai import Agent
 
 from src.config import (
     log_researcher,
     log_writer,
     log_prompt_master,
 )
-from src.llm import LLMFactory
 from src.tools import search_tool
 
 class ResearcherAgent(Agent):
@@ -47,7 +45,6 @@ Raises:
             ),
             allow_delegation=True,
             verbose=True,
-            llm=LLMFactory.init_llm(),
             tools=[search_tool],
             **kwargs,
         )
@@ -71,7 +68,6 @@ class WriterAgent(Agent):
             ),
             allow_delegation=True,
             verbose=True,
-            llm=LLMFactory.init_llm(),
             **kwargs,
         )
 
@@ -94,8 +90,7 @@ class PromptMasterAgent(Agent):
             ),
             allow_delegation=False,
             verbose=True,
-            llm=LLMFactory.init_llm(),
-            **kwargs,
+                        **kwargs,
         )
 
 
@@ -117,6 +112,5 @@ class EditorAgent(Agent):
             ),
             allow_delegation=False,
             verbose=True,
-            llm=LLMFactory.init_llm(),
-            **kwargs,
+                        **kwargs,
         )

@@ -55,11 +55,14 @@ def create_crew() -> Crew:
         Exception: If there is an error creating the crew.
     """
     try:
+        # Create shared LLM instance
+        llm = LLMFactory.init_llm()
+        
         # Initialize agents
-        researcher = ResearcherAgent(search_tool=search_tool)
-        writer = WriterAgent()
-        prompt_master = PromptMasterAgent()
-        editor = EditorAgent()
+        researcher = ResearcherAgent(search_tool=search_tool, llm=llm)
+        writer = WriterAgent(llm=llm)
+        prompt_master = PromptMasterAgent(llm=llm)
+        editor = EditorAgent(llm=llm)
         
         # Create tasks for the agents
         tasks = create_tasks(researcher, writer, prompt_master, editor)
