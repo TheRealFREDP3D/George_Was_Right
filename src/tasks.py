@@ -10,6 +10,7 @@ from src.config import (
     log_researcher,
     log_writer,
     log_prompt_master,
+    log_editor,
     search_topic,
 )
 
@@ -72,10 +73,10 @@ def create_editor_task(editor_agent):
             "A polished, refined article that effectively compares a current event "
             "with themes from '1984', with improved clarity, coherence, and impact."
         ),
-        output_file="log/log_editor.md",
+        output_file=log_editor,
     )
 
-def create_tasks(researcher, writer, prompt_master, editor=None):
+def create_tasks(researcher, writer, prompt_master, editor):
     """Create all tasks for the crew."""
     tasks = [
         create_research_task(researcher),
@@ -83,8 +84,7 @@ def create_tasks(researcher, writer, prompt_master, editor=None):
         create_prompt_master_task(prompt_master)
     ]
     
-    # Add editor task if editor agent is provided
-    if editor:
-        tasks.append(create_editor_task(editor))
+    # Add editor task
+    tasks.append(create_editor_task(editor))
         
     return tasks

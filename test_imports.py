@@ -9,14 +9,17 @@ to ensure that the refactoring hasn't broken any imports.
 import logging
 import sys
 
-# Configure logging
-logging.basicConfig(
-    level=logging.INFO,
-    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
-    handlers=[logging.StreamHandler()]
-)
-
+# Get logger without configuring basicConfig (main.py handles global configuration)
 logger = logging.getLogger(__name__)
+
+# If running standalone and no handlers are configured, add a simple console handler
+if len(logger.handlers) == 0 and len(logging.getLogger().handlers) == 0:
+    console_handler = logging.StreamHandler()
+    console_handler.setLevel(logging.INFO)
+    formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+    console_handler.setFormatter(formatter)
+    logger.addHandler(console_handler)
+    logger.setLevel(logging.INFO)
 
 def test_imports():
     """Test importing all the main modules and classes."""

@@ -11,7 +11,6 @@ from dotenv import load_dotenv
 # Load environment variables from .env file - centralized here
 # This is the ONLY place where load_dotenv() should be called
 load_dotenv()
-print(f"DEBUG: LLM_MODEL_NAME from env: {os.getenv('LLM_MODEL_NAME')}")
 
 # LLM parameters
 # Prioritize environment variables, but keep defaults as fallback
