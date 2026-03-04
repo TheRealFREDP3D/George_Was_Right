@@ -3,6 +3,7 @@ import os
 import subprocess
 import json
 from dotenv import load_dotenv, set_key
+from src.config import llm_model_name
 import glob
 import time
 
@@ -42,9 +43,9 @@ try:
         models_data = json.load(f)
         available_models = [m["name"] for m in models_data]
 except FileNotFoundError:
-    available_models = ["gemini/gemini-pro", "gemini/gemini-1.5-flash", "gpt-4o-mini", "gpt-3.5-turbo"]
+    available_models = [llm_model_name]
 
-current_model = os.getenv("LLM_MODEL_NAME", "gemini/gemini-pro")
+current_model = os.getenv("LLM_MODEL_NAME", llm_model_name)
 # Handle case where current model is not in the list (e.g. custom or old)
 if current_model not in available_models:
     available_models.insert(0, current_model)
@@ -53,24 +54,37 @@ selected_model = st.sidebar.selectbox("Select LLM Model", available_models, inde
 
 if st.sidebar.button("Update Model"):
     set_key(env_path, "LLM_MODEL_NAME", selected_model)
-    set_key(env_path, "PLANNING_LLM_MODEL_NAME", selected_model)
-    set_key(env_path, "FALLBACK_LLM_NAME", selected_model)
     st.sidebar.success(f"Model updated to {selected_model}")
     time.sleep(1)
     st.rerun()
 
+def safe_parse_search_n_results():
+    """Safely parse SEARCH_N_RESULTS environment variable with fallback and bounds checking."""
+    try:
+        value = int(os.getenv("SEARCH_N_RESULTS", "5"))
+        # Ensure value is within supported range (1-20)
+        return max(1, min(20, value))
+    except (ValueError, TypeError):
+        # Fallback to default if parsing fails
+        return 5
+
 # Search Settings
 st.sidebar.subheader("Search Settings")
 search_topic = st.sidebar.text_area("Search Topic", value=os.getenv("SEARCH_TOPIC", "Search for recent real world news that demonstrate how Orwell's book '1984' is still relevant today"))
+search_country = st.sidebar.text_input("Country Code", value=os.getenv("SEARCH_COUNTRY", "us"))
+search_n_results = st.sidebar.number_input("Num Results", value=safe_parse_search_n_results(), min_value=1, max_value=20)
 
-if st.sidebar.button("Update Topic"):
+if st.sidebar.button("Update Search Settings"):
     set_key(env_path, "SEARCH_TOPIC", search_topic)
-    st.sidebar.success("Search topic updated!")
+    set_key(env_path, "SEARCH_COUNTRY", search_country)
+    set_key(env_path, "SEARCH_N_RESULTS", str(search_n_results))
+    st.sidebar.success("Search settings updated!")
     time.sleep(1)
     st.rerun()
 
 
 # --- Main Area ---
+log_dir = "log"
 tab1, tab2, tab3 = st.tabs(["🚀 Run Crew", "📄 Results", "📝 Logs"])
 
 # Tab 1: Run Crew
@@ -117,7 +131,6 @@ with tab2:
     # Actually, let's check where reports are saved. 
     # src/tasks.py says output_file=log_writer (which is in log/ directory)
     
-    log_dir = "log"
     if os.path.exists(log_dir):
         files = glob.glob(f"{log_dir}/*.md")
         files.sort(key=os.path.getmtime, reverse=True)
