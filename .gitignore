@@ -14,3 +14,6 @@ appmap.*
 /_DEV_
 /.python-version
 /test_imports.py
+/log
+/.mypy_cache
+/.github
