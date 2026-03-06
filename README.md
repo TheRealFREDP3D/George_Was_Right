@@ -40,13 +40,10 @@ This project aims to provide a nuanced examination of how contemporary society r
 
 ## Showcase
 
-### Old Showcase 1
+### Showcase 2025-11-26
 
-- **Terminal Log:** [terminal_log.md](showcases/v1/OLD-Showcase-1/terminal_log.md)
-
-### Old Showcase 2
-
-- **Terminal Log:** [terminal_log2.md](showcases/v1/OLD-Showcase-2/terminal_log2.md)
+- **GPT-4o Analysis Report:** [Report-2025-11-26-GPT-4o.md](showcases/2025.NOV.26-Showcase/Report-2025-11-26-GPT-4o.md)
+- **Grok Facts Check Report:** [Facts-Check-Report-2025-11-26-Grok.md](showcases/2025.NOV.26-Showcase/Facts-Check-Report-2025-11-26-Grok.md)
 
 
 ## Project History
@@ -149,7 +146,7 @@ The project will run and create logs in the /log folder.
 
 **Requirements:**
 
-- Python 3.8 or later
+- Python 3.10 or later
 - Internet connection for AI-powered agents or use Ollama for local usage.
 - Github API key
 - SerperDev API key

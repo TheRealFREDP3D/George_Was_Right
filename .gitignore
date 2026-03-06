@@ -17,3 +17,4 @@ appmap.*
 /log
 /.mypy_cache
 /.github
+/.sourcetrail
