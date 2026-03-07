@@ -80,10 +80,12 @@ except Exception:
     try:
         with open("available_models.json", "r") as f:
             models_data = json.load(f)
-            available_models = [m["name"] for m in models_data]
+            available_models = [
+                m["name"] if m["name"].startswith("ollama/") else f"ollama/{m['name']}"
+                for m in models_data
+            ]
     except FileNotFoundError:
         pass
-
 if not available_models:
     available_models = [llm_model_name]
 

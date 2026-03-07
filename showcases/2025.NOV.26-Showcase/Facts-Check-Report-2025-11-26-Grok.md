@@ -1,10 +1,8 @@
-## v0.6 - George-was-Right Project  
+## v0.6 - George-was-Right Project
 
-I asked Grok to review the material produced by the crew. I simply asked: Fact check this information. There still room for improvement but I'm happy at this point.
+I asked Grok to review the material produced by the crew. I simply asked: Fact check this information. There's still room for improvement but I'm happy at this point.
 
-From now on, all the text is from Grok. I didn't changes a single letter.
-
----
+## From now on, all the text is from Grok. I didn't change a single letter.
 
 ### Grok Evaluation
 
@@ -17,17 +15,14 @@ I'll go claim-by-claim, confirming accuracy based on current data (as of Novembe
 ### Key Factual Claims and Verification
 
 1. **Surveillance parallels to "Big Brother," citing Privacy International on EU practices:**
-
    - **Document Claim:** "According to Privacy International, there is a growing expectation that European Union institutions will implement higher human rights considerations in response to these surveillance practices. Yet, concerns about privacy violations persist..."
    - **Verification:** This is accurate and supported. Privacy International (PI) has consistently advocated for stronger human rights safeguards in EU surveillance laws, including through updated guides on international law and surveillance (last revised in 2024). They emphasize compliance with human rights standards in legislation and practice, amid ongoing concerns about mass surveillance. Recent developments, such as a 2024 European Court of Human Rights ruling against Poland's mass surveillance powers for violating privacy rights, reinforce the "growing expectation" for EU-level reforms. However, broader critiques (e.g., from Amnesty International) note that EU "simplification" efforts in 2025 could rollback digital rights, heightening privacy concerns. No major inaccuracies here—the claim holds up.
 
 2. **Digital repression in Indonesia under Joko Widodo:**
-
    - **Document Claim:** "In Indonesia, under the leadership of Joko Widodo, digital repression has intensified. Government strategies include internet shutdowns and the use of spyware to confine civic spaces and suppress dissent."
    - **Verification:** This is accurate, particularly for Widodo's presidency (2014–2024). Multiple analyses confirm a "digital turn in repression" during his tenure, involving surveillance, internet shutdowns (e.g., during 2019 unrest in Papua), spyware deployment, digital attacks, and lawfare to target dissenters and narrow civic space. Post-Widodo (since late 2024), internet freedom has shown slight improvements in speed and access, per Freedom House's 2024 report, but ongoing issues like wiretapping pacts and activist targeting persist. The claim is historically correct but could note that Widodo's term ended in 2024 for full context.
 
 3. **Global decline in internet freedom, citing Freedom House:**
-
    - **Document Claim:** "...the global decline of internet freedom reported by Freedom House. For 15 consecutive years, internet freedom has diminished as authoritarian regimes deepen their grip on information dissemination."
    - **Verification:** This is accurate as of the latest data. Freedom House's _Freedom on the Net 2025_ report confirms a 15th consecutive year of global decline, driven by censorship, offline repression, and authoritarian controls on information. However, if the document was originally drafted in 2023 (per the title), this figure would have been 13 years at that time (based on the 2023 report). The "15 years" aligns with 2025, suggesting a possible update or typo in the document's framing. No other issues—the trend is well-substantiated.
 

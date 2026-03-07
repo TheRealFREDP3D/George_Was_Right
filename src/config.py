@@ -33,8 +33,16 @@ use_fallback = os.getenv("USE_FALLBACK", "True").lower() in ("true", "1", "t")
 
 # Search parameters
 search_country = os.getenv("SEARCH_COUNTRY", "us")
-search_n_results = int(os.getenv("SEARCH_N_RESULTS", "5"))
-search_topic = os.getenv(
+def _parse_int(env_var: str, default: int) -> int:
+    """Parse integer from environment variable with fallback."""
+    value = os.getenv(env_var, str(default))
+    try:
+        return int(value)
+    except ValueError:
+        print(f"Warning: Invalid {env_var} value '{value}', using default {default}")
+        return default
+
+search_n_results = _parse_int("SEARCH_N_RESULTS", 5)search_topic = os.getenv(
     "SEARCH_TOPIC",
     "Search for recent real world news that demonstrate how Orwell's book '1984' is still relevant today",
 )

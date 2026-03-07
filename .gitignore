@@ -16,10 +16,15 @@ appmap.*
 /test_imports.py
 /log
 /.mypy_cache
-/.github
 /.sourcetrail
 
 #Ignore vscode AI rules
-.github\instructions\codacy.instructions.md
-/.codeviz
+#Ignore vscode AI rules
+.github/instructions/codacy.instructions.md
+/.codeviz/.codeviz
 .codacy/codacy.yaml
+.codeviz/Untitled 1/Unnamed-CodeViz-Diagram.drawio
+.codeviz/Untitled 1/Unnamed-CodeViz-Diagram.md
+.codeviz/Untitled 1/Unnamed-CodeViz-Diagram.png
+.codeviz/Untitled 1/Untitled-1.drawio
+.codeviz/Untitled 1/Untitled-1.png
