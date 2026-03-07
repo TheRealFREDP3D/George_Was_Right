@@ -112,5 +112,5 @@ class EditorAgent(Agent):
             ),
             allow_delegation=False,
             verbose=True,
-                        **kwargs,
+            **kwargs,
         )
