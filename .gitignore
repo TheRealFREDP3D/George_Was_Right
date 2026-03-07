@@ -18,3 +18,8 @@ appmap.*
 /.mypy_cache
 /.github
 /.sourcetrail
+
+#Ignore vscode AI rules
+.github\instructions\codacy.instructions.md
+/.codeviz
+.codacy/codacy.yaml
