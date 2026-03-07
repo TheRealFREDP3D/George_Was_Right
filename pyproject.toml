@@ -1,0 +1,14 @@
+[project]
+name = "george-was-right"
+version = "0.6.0"
+requires-python = ">=3.10"
+authors = [
+    {name = "Frederick Pellerin", email = "fredp3d@proton.me"}
+]
+dependencies = [
+    "crewai",
+    "crewai-tools", 
+    "streamlit",
+    "python-dotenv",
+    "rich"
+]

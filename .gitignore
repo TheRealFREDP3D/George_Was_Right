@@ -11,3 +11,20 @@ appmap.*
 /.pytest_cache
 /.venv
 /.vscode
+/_DEV_
+/.python-version
+/test_imports.py
+/log
+/.mypy_cache
+/.sourcetrail
+
+#Ignore vscode AI rules
+#Ignore vscode AI rules
+.github/instructions/codacy.instructions.md
+/.codeviz/.codeviz
+.codacy/codacy.yaml
+.codeviz/Untitled 1/Unnamed-CodeViz-Diagram.drawio
+.codeviz/Untitled 1/Unnamed-CodeViz-Diagram.md
+.codeviz/Untitled 1/Unnamed-CodeViz-Diagram.png
+.codeviz/Untitled 1/Untitled-1.drawio
+.codeviz/Untitled 1/Untitled-1.png

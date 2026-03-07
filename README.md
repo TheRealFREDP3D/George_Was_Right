@@ -1,6 +1,5 @@
 # George-Was-Right v0.6 - README.md
 
-![Generated with DALL-E and a prompt from the Prompt Master Agent](images/Header.png)
 
 George_Was_Right leverages a team of AI agents, powered by CrewAI, to analyze recent world events through the lens of themes from George Orwell's *1984*. It orchestrates four specialized agents—Researcher, Writer, Prompt Master, and Editor—to perform tasks such as:
 
@@ -19,11 +18,6 @@ George_Was_Right leverages a team of AI agents, powered by CrewAI, to analyze re
 
 This project aims to provide a nuanced examination of how contemporary society reflects Orwellian concerns about digital privacy and freedom, fostering meaningful discussion and awareness.
 
----
-
-![Generated with DALL-E and a prompt from the Illustrator Agent](images/illustration-under-surveillance-camera.jpg)
-
----
 
 ## Features and Roadmap
 
@@ -40,40 +34,17 @@ This project aims to provide a nuanced examination of how contemporary society r
 ### Upcoming Enhancements
 
 - **Customizable Search Parameters:** Add options for users to specify country and the number of search results for focused research.
-- **GUI Integration:** Develop a user-friendly graphical interface for seamless control of the analysis process.
 - **Refined Output Formats:** Improve markdown and PDF exports for clarity and usability.
 - **Incremental Feature Rollout:** Continuously implement new features while maintaining backward compatibility.
 
-![Generated with DALL-E and a prompt from the Illustrator Agent](images/Header.png)
 
 ## Showcase
 
-### Showcase-1
+### Showcase 2025-11-26
 
-- **Main Script:** [main.py](showcase/Showcase-1/main.py)
-- **Generated Images:**
-  - [Prompt1-ChatGPT.jpg](showcase/Showcase-1/Prompt1-ChatGPT.jpg)
-  - [Prompt1.Dall-E-2.jpg](showcase/Showcase-1/Prompt1.Dall-E-2.jpg)
-  - [Prompt1.Dall-E-3.jpg](showcase/Showcase-1/Prompt1.Dall-E-3.jpg)
-  - [Prompt1.Dall-E-4.jpg](showcase/Showcase-1/Prompt1.Dall-E-4.jpg)
-  - [Prompt1.Dall-E.jpg](showcase/Showcase-1/Prompt1.Dall-E.jpg)
-  **Terminal Log:** [terminal_log.md](showcase/Showcase-1/terminal_log.md)
+- **GPT-4o Analysis Report:** [Report-2025-11-26-GPT-4o.md](showcases/2025.NOV.26-Showcase/Report-2025-11-26-GPT-4o.md)
+- **Grok Facts Check Report:** [Facts-Check-Report-2025-11-26-Grok.md](showcases/2025.NOV.26-Showcase/Facts-Check-Report-2025-11-26-Grok.md)
 
-### Showcase-2
-
-- **Generated Images:**
-  - [Prompt1-ChatGPT.jpg](showcase/Showcase-2/Prompt1-ChatGPT.jpg)
-  - [Prompt2-Dalle-E-2.jfif](showcase/Showcase-2/Prompt2-Dalle-E-2.jfif)
-  - [Prompt2-Dalle-E-3.jfif](showcase/Showcase-2/Prompt2-Dalle-E-3.jfif)
-  - [Prompt2-Dalle-E-4.jfif](showcase/Showcase-2/Prompt2-Dalle-E-4.jfif)
-  - [Prompt2-Dalle-E.jfif](showcase/Showcase-2/Prompt2-Dalle-E.jfif)
-- **Terminal Output:** [terminal-output--26-12-2024.md](showcase/Showcase-2/terminal_log2.md)
-
----
-
-![Generated with DALL-E and a prompt from the Illustrator Agent](images/the-eye-telescreen.jpg)
-
----
 
 ## Project History
 
@@ -101,9 +72,6 @@ I hope you find this project interesting.
 
 ---
 
-![Generated with DALL-E and a prompt from the Illustrator Agent](images/ministry-of-truth-soviet-touch.jpg)
-
----
 
 ## Getting Started
 
@@ -162,9 +130,15 @@ Follow these steps to set up the project:
 
 8. Run the project:
 
-   ```bash
-   python main.py
-   ```
+**CLI mode:**
+```bash
+python main.py
+```
+
+**Streamlit GUI mode:**
+```bash
+streamlit run app.py
+```
 
 The project will run and create logs in the /log folder.
 
@@ -172,7 +146,7 @@ The project will run and create logs in the /log folder.
 
 **Requirements:**
 
-- Python 3.8 or later
+- Python 3.10 or later
 - Internet connection for AI-powered agents or use Ollama for local usage.
 - Github API key
 - SerperDev API key
@@ -236,14 +210,6 @@ Please ensure changes are well-tested and documented. Refer to the [Contribution
 
 ---
 
-![Generated with DALL-E and a prompt from the Illustrator Agent](images/big-brother-is-watching.jpg)
 
 **Modified:** April 27, 2025
 
-## Front-End Improvements (v0.6+)
-
-- **Markdown Rendering:** Now uses [Marked.js](https://marked.js.org/) for robust and safe Markdown parsing. This replaces the previous regex-based approach, ensuring correct rendering and improved security.
-- **Run Crew Button:** The 'Run Crew' button is now disabled during execution to prevent duplicate/overlapping runs. It is re-enabled after the mock run completes.
-- **CSS Theming:** All major color tokens (Dark Blue, Ivory, Copper) are now managed via CSS custom properties (variables) in `style.css`. This makes it easier to update the theme or maintain color consistency.
-- **API Key Security:** The API key input field has `autocomplete="off"` to prevent browsers from storing or autofilling sensitive data.
-- **Security:** Markdown rendering is now handled by Marked.js, which helps mitigate XSS risks by avoiding unsafe direct HTML injection from user input.

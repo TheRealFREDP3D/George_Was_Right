@@ -55,11 +55,14 @@ def create_crew() -> Crew:
         Exception: If there is an error creating the crew.
     """
     try:
+        # Create shared LLM instance
+        llm = LLMFactory.init_llm()
+        
         # Initialize agents
-        researcher = ResearcherAgent(search_tool=search_tool)
-        writer = WriterAgent()
-        prompt_master = PromptMasterAgent()
-        editor = EditorAgent()
+        researcher = ResearcherAgent(search_tool=search_tool, llm=llm)
+        writer = WriterAgent(llm=llm)
+        prompt_master = PromptMasterAgent(llm=llm)
+        editor = EditorAgent(llm=llm)
         
         # Create tasks for the agents
         tasks = create_tasks(researcher, writer, prompt_master, editor)
@@ -80,8 +83,10 @@ def create_crew() -> Crew:
 def cleanup():
     """Cleanup resources properly when the application exits"""
     print("Cleaning up resources...")
-    # Add cleanup code here if needed
-    # For example: close file handles, terminate processes, etc.
+    # Close and remove logging handlers
+    for handler in logging.getLogger().handlers[:]:
+        handler.close()
+        logging.getLogger().removeHandler(handler)
 
 def main():
     """Main function to run the application.
@@ -90,10 +95,6 @@ def main():
     It handles any exceptions that occur during execution.
     """
     try:
-        # Ensure the log directory exists
-        if not os.path.exists(log_directory):
-            os.makedirs(log_directory)
-            
         # Check for configuration issues
         from src.config import config_issues
         if config_issues:
@@ -133,14 +134,7 @@ def main():
     except ConnectionError as e:
         print(f"[ERROR] Connection failed: {str(e)}")
         print("Please check if your LLM service is running or if you need to use a different model.")
-        if use_fallback:
-            try:
-                print(f"Attempting to use fallback model: {fallback_llm_name}")
-                # Here we could implement specific fallback logic if needed
-                # For example, temporarily modify config and re-create crew
-                print(f"Fallback mechanism activated. This feature needs implementation.")
-            except Exception as fallback_error:
-                print(f"[ERROR] Fallback attempt failed: {str(fallback_error)}")
+        logging.error("ConnectionError: LLM service unavailable. LLMFactory handles fallback internally.")
         return None
     except Exception as e:
         print(f"[ERROR] Application error: {str(e)}")
