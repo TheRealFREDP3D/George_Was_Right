@@ -1,6 +1,6 @@
 # George-Was-Right v0.6 - README.md
 
-[![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/TheRealFREDP3D/George_Was_Right)
+[![Ask DeepWiki](images/badge.svg)](https://deepwiki.com/TheRealFREDP3D/George_Was_Right)
 
 ---
 
