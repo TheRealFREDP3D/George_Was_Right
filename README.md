@@ -1,5 +1,8 @@
 # George-Was-Right v0.6 - README.md
 
+[![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/TheRealFREDP3D/George_Was_Right)
+
+---
 
 George_Was_Right leverages a team of AI agents, powered by CrewAI, to analyze recent world events through the lens of themes from George Orwell's *1984*. It orchestrates four specialized agents—Researcher, Writer, Prompt Master, and Editor—to perform tasks such as:
 
